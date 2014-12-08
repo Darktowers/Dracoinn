@@ -1,0 +1,58 @@
+@import "normalize.styl"
+@import "nib"
+
+body
+	background black
+	
+.back
+	height 100%
+	position: absolute
+	width 100%
+	.fondo
+		-moz-filter blur(15px) 
+		-ms-filter blur(15px) 
+		-o-filter blur(15px) 
+		-webkit-filter blur(15px)
+		background-image url("../img/11.jpg")
+		background-position center center
+		background-repeat no-repeat;
+		background-size cover
+		filter blur(15px)
+		height 100%
+		
+	.formu
+		background rgba(0,0,0,0.5)
+		height 100%
+		position absolute
+		top 0
+		width 100%
+		.caja
+			border-radius 5px
+			height 400px
+			margin 0 auto
+			position relative
+			top 30%
+			width 500px
+			border 1px solid white
+			text-align center
+			form
+				margin-top 6em
+			input
+				border-radius 3px
+				width 65%
+				height 40px
+				color darkgray
+				font-size 1.5em
+				padding 0 1em 0 1em
+				text-align center
+				margin-bottom 2em
+				background rgba(0,0,0,0.4)
+				
+			input[type=submit]
+				width 40%
+				border 0
+				padding 0
+				background none
+				border 1px solid	
+				
+		
