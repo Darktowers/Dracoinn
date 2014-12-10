@@ -3,6 +3,7 @@
 
 body
 	background black
+
 	
 .back
 	height 100%
@@ -13,7 +14,7 @@ body
 		-ms-filter blur(15px) 
 		-o-filter blur(15px) 
 		-webkit-filter blur(15px)
-		background-image url("../img/11.jpg")
+		background-image url("../img/4.jpg")
 		background-position center center
 		background-repeat no-repeat;
 		background-size cover
@@ -26,33 +27,65 @@ body
 		position absolute
 		top 0
 		width 100%
+		text-align center
+		h1
+			margin: 1.6em 0 1em 0;
+			font-weight lighter
+			color #430FAD
 		.caja
-			border-radius 5px
-			height 400px
-			margin 0 auto
-			position relative
-			top 30%
-			width 500px
-			border 1px solid white
-			text-align center
-			form
-				margin-top 6em
+			border-radius: 5px;
+			height: 400px;
+			margin: 0 auto;
+			position: relative;
+			top: 30%;
+			width: 350px;
+			border: 1px solid #430FAD;
+			text-align: center;
+			background: white;
+			box-shadow: 6px 7px 20px;
 			input
-				border-radius 3px
-				width 65%
-				height 40px
-				color darkgray
-				font-size 1.5em
-				padding 0 1em 0 1em
-				text-align center
-				margin-bottom 2em
-				background rgba(0,0,0,0.4)
+				display: inline-block;
+				border-radius: 3px;
+				padding: 0.6em 1em;
+				margin: 1em 1.5em 1em 1.5em;
+				text-align: center;
+				font-size: 1.1em;
+				margin-bottom: 1em;
+				border: 0;
+				border 1px solid #430FAD
+				font-weight: normal;
+				
+				&:focus
+					border 1px solid #000
 				
 			input[type=submit]
-				width 40%
-				border 0
-				padding 0
-				background none
-				border 1px solid	
 				
+				border 0
+				background none
+				border 2px solid #430FAD
+				padding 25px 50px
+				width auto
+				line-height 0px
+				transition 0.5s background
+				transition 0.5s white
+				transition 0.5s border, white, background
+				color #430FAD
+				font-weight lighter
+			
+				&:hover
+					background #430FAD
+					color white
+					border: 2px solid #000;
 		
+.dragon
+	background-image: url("../img/login.png");
+	background-repeat: no-repeat;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	background-size: contain;
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	position: relative;
+	/* margin: 0 auto; */
+	top: -298px;
