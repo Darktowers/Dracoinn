@@ -65,6 +65,10 @@
 
 body
 	background black
+::-ms-placeholder
+	color #4d07cd	
+::-webkit-placeholder
+	color #4d07cd	
 ::-moz-placeholder
 	color #4d07cd
 	
@@ -96,6 +100,8 @@ body
 			margin 1.6em 0 1em 0
 			font-weight lighter
 			color #4d07cd
+		
+		.registro
 		.caja
 			border-radius 5px
 			height auto
@@ -116,7 +122,7 @@ body
 				margin 1em 1.5em 1.5em 0
 				&:hover
 					color #1389ED
-			input
+			input 
 				display inline-block
 				border-radius 3px
 				padding 0.6em 1.5em
@@ -138,7 +144,7 @@ body
 					border 1px solid #1389ED
 					color #1389ED
 				
-			input[type=submit]
+			input[type=submit], button
 				
 				border 0
 				background none
@@ -159,17 +165,23 @@ body
 				margin-right 1em		
 				
 .dragon
-	background-image url("../img/draco.png")
-	background-repeat no-repeat
-	background-size 100%
-	display inline-block
-	width 300px
-	height 300px
-	position relative
-	/* margin 0 auto */
-	top -45%
+	background-image: url("../img/draco.png");
+	background-repeat: no-repeat;
+	-webkit-background-size: 100%;
+	-moz-background-size: 100%;
+	background-size: 100%;
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	top: -40%;
+	position: absolute;
+	right: -30%;
 .usuario
-.password	
+.password
+.telefono
+.email
+.repassword
+.politicas				
 	position relative
 	span
 		position: absolute;
@@ -178,5 +190,96 @@ body
 		font-size: 1.2em;
 		display: inline-block;
 		color: #4D07CD;
+textarea
+	display inline-block
+	border-radius 3px
+	padding 0.6em 1.5em
+	margin 1em 1.5em 1em 1.5em
+	text-align justify
+	font-size 1.1em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd
+	resize: none;
+	
+	
+	
+	&:focus
+		box-shadow 0px 0px 14px #1389ED
+		background white
+		border 1px solid #1389ED
+		color #1389ED		
+.politicas-1
+	border-radius 5px
+	height auto
+	margin 0 auto
+	position relative
+	top 10%
+	width 40%
+	border 1px solid
+	text-align center
+	background #fff
+	box-shadow 6px 7px 20px
+	span
+		margin-right 0.5em
+	a 
+		text-decoration none
+		text-align right
+		display block
+		margin 1em 1.5em 1.5em 0
+		&:hover
+			color #1389ED
+	input
+		display inline-block
+		border-radius 3px
+		padding 0.6em 1.5em
+		margin 1em 1.5em 1em 1.5em
+		text-align center
+		font-size 1.1em
+		margin-bottom 1em
+		border 0
+		border 1px solid #4d07cd
+		font-weight normal
+		background rgba(204, 204, 204, 0.85)
+		transition all 0.8s
+		color #4d07cd 
 		
 		
+		&:focus
+			box-shadow 0px 0px 14px #1389ED
+			background white
+			border 1px solid #1389ED
+			color #1389ED
+		
+	input[type=submit], button
+		
+		border 0
+		background none
+		border 2px solid #4d07cd
+		padding 25px 50px
+		width auto
+		line-height 0px
+		transition all 0.2s ease-in-out 0s
+		color #4d07cd
+		font-weight bold
+		margin-bottom 2em 
+		margin-right 1em
+		font-size 1.1em
+	
+		
+	.icon-check
+		margin-right 1em
+.good
+	&:hover
+		background green
+		color #fff
+		border 2px solid green
+.bad 
+	&:hover
+		background red
+		color #fff
+		border 2px solid red						
