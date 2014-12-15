@@ -31,16 +31,16 @@
 					</div>
 					<div class="password">
 						<span class="icon-key"></span>
-						<input type="password" name="contrasena" placeholder="Contraseña" required>
+						<input type="password" name="password" placeholder="Contraseña" required>
 					</div>
 					<div class="repassword">
 						<span class="icon-key"></span>
-						<input type="password" name="recontrasena" placeholder="Repetir Contraseña" required>
+						<input type="password" name="repassword" placeholder="Repetir Contraseña" required>
 					</div>
 					<input type="submit" value="Registrarse">
 				</form>
 
-				<a href="index.html"><span class="icon-envelope"></span>Cancelar</a>
+				<a href="index.php"><span class="icon-envelope"></span>Cancelar</a>
 				
 			</div>
 			
@@ -49,3 +49,30 @@
 	</div>	
 </body>
 </html>
+<?php 
+if($_POST){
+	include_once'includes/conexion.php';
+	$user=$_POST['user'];
+	$email=$_POST['email'];
+	$telefono=$_POST['telefono'];
+	$password=$_POST['password'];
+	$repassword=$_POST['repassword'];
+
+	if($password==$repassword){
+		$queryNickName=mysql_query("select nickName from usuario where nickName='".$user."'");
+		$queryCorreo=mysql_query("select correo from usuario where correo='".$email."'");
+		$confirmacionNickName=mysql_num_rows($queryNickName);
+		$confirmacionCorreo=mysql_num_rows($queryCorreo);
+		//echo $confirmacionCorreo.$confirmacionNickName;
+		if($confirmacionNickName==0 && $confirmacionCorreo==0){	
+				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$password."','".$telefono."','Activo','Usuario','defauld')");
+				
+				if($consulta){
+					header('location:index.php');
+				}
+				else{echo "No existe";}
+		}
+		else{echo "repetido";}
+	}
+}
+?>

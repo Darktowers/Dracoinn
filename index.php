@@ -23,7 +23,7 @@
 					</div>
 					<div class="password">
 						<span class="icon-key"></span>
-						<input type="password" name="contraseña" placeholder="Contraseña" required>
+						<input type="password" name="password" placeholder="Contraseña" required>
 					</div>
 					<input type="submit" value="Ingresar">
 				</form>
@@ -37,3 +37,17 @@
 	</div>	
 </body>
 </html>
+<?php 
+if($_POST){
+	include_once'includes/conexion.php';
+	$user=$_POST['user'];
+	$password=$_POST['password'];
+
+	$consulta=mysql_query("select nickName,passWord from usuario where nickName='".$user."' and passWord='".$password."'");
+	$rows=mysql_num_rows($consulta);
+	if($rows==1){
+		header('location:user/index.html');//pendiente poner location al el index de user
+	}
+	else{echo "No existe";}//pendiente poner parte de error en usuario
+}
+?>
