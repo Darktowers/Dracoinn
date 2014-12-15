@@ -2,13 +2,14 @@
 @import "nib"
 gris_oscuro = #333333
 gris_claro = #818181
+morado = #4d07cd
 @font-face 
 	font-family 'icomoon'
-	src url('../../fonts/icomoon.eot?sqehjs')
-	src url('../../fonts/icomoon.eot?#iefixsqehjs') format('embedded-opentype'),
-		url('../../fonts/icomoon.woff?sqehjs') format('woff'),
-		url('../../fonts/icomoon.ttf?sqehjs') format('truetype'),
-		url('../../fonts/icomoon.svg?sqehjs#icomoon') format('svg')
+	src url('../fonts/icomoon.eot?sqehjs')
+	src url('../fonts/icomoon.eot?#iefixsqehjs') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?sqehjs') format('woff'),
+		url('../fonts/icomoon.ttf?sqehjs') format('truetype'),
+		url('../fonts/icomoon.svg?sqehjs#icomoon') format('svg')
 	font-weight normal
 	font-style normal
 
@@ -120,9 +121,87 @@ figure
 		position absolute
 		top 0
 		width 100%
-		text-align center			
+		text-align center
 .menu_nav
 	display none
+.addboton
+	border-radius 1px 10px 1px 1px
+	color white
+	background #344B54
+	font-size 2em
+	margin 0 0 0 0.5em
+	transition all 0.2s ease-in-out 0s
+	cursor pointer
+	padding-bottom: 0.5em;
+		 					
+.menu_nav
+	background #344B54
+	position absolute
+	right 0
+	width 204px
+	top -2.6em
+	.menu_ul
+		list-style: none
+		margin: 0
+		padding: 0
+		
+		.item
+			display: block
+			margin:0
+			a 
+				color white
+				display block
+				padding 0.5em
+				text-decoration: none
+				transition:0.3s	
+
+				&:hover
+					background morado
+.menu2_nav
+	background #344B54
+	position absolute
+	left 0
+	width 204px
+	
+	.menu2_ul
+		list-style: none
+		margin: 0
+		padding: 0
+		
+		
+		.menu2-item
+			display: block
+			margin:0
+			
+			.active
+				background morado
+				&:after
+					content ""
+					display:block;
+					right -36px
+					
+					top 0
+					border-color:transparent transparent transparent morado;
+					border-style:solid;
+					border-width:18.9px;
+					position absolute
+					 
+			a
+				color white
+				display block
+				padding 0.5em
+				text-decoration: none
+				transition:0.3s	
+				&:hover
+					background morado
+								
+
+
+
+
+	
+
+		
 .username
 	color #818181
 	position relative
@@ -132,16 +211,26 @@ figure
 	color gris_claro
 	font-size 2em
 	margin 0 0 0 0.5em
+	transition all 0.2s ease-in-out 0s
+	cursor pointer
+.scale
+	transform:scale(1.1,1.1);	
+		
+		
+	  
 .eye-icon
 	color gris_claro
 	font-size 1.5em
 	margin 0 0.5em 0 0
-	padding 0.3em 0 0 0 	
+	padding 0.3em 0 0 0
+	 	
 .user 
 	position absolute
 	right 0
 	bottom 0
 	margin 0 0 1.3em 0.5em
+	
+	
 .contenido
 	height 1000px
 	background white
