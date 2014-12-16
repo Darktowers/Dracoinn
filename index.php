@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(@$_SESSION['usuario']!=true){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,16 +42,39 @@
 </body>
 </html>
 <?php 
-if($_POST){
-	include_once'includes/conexion.php';
-	$user=$_POST['user'];
-	$password=$_POST['password'];
 
-	$consulta=mysql_query("select nickName,passWord from usuario where nickName='".$user."' and passWord='".$password."'");
+if($_POST)
+{
+	include_once'includes/conexion.php';
+	$userSinFiltro=$_POST['user'];
+	$user=filter_var($userSinFiltro,FILTER_SANITIZE_MAGIC_QUOTES);
+	$password=sha1($_POST['password']);
+
+	$consulta=mysql_query("select nickName,passWord,rolUsuario from usuario where nickName='".$user."' and passWord='".$password."'");
 	$rows=mysql_num_rows($consulta);
-	if($rows==1){
-		header('location:user/index.html');//pendiente poner location al el index de user
+	$fetch=mysql_fetch_array($consulta);
+	if($rows==1 && $fetch['rolUsuario']=="Usuario")
+		{
+			$_SESSION['usuario']=true;
+			$_SESSION['rol']=$fetch['rolUsuario'];
+			$_SESSION['nick']=$fetch['nickName'];
+			header('location:user/index.php');
+		}
+	
+	else{
+		?>
+			<script type="text/javascript">
+				//Christian meter ligthbox con texto de error de contraseña o nickname 
+			</script>
+		<?php
 	}
-	else{echo "No existe";}//pendiente poner parte de error en usuario
+}
+}
+else
+{
+	if(@$_SESSION['usuario']==true)
+	{
+		header('location:user/index.php');
+	}
 }
 ?>

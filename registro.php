@@ -63,9 +63,10 @@ if($_POST){
 		$queryCorreo=mysql_query("select correo from usuario where correo='".$email."'");
 		$confirmacionNickName=mysql_num_rows($queryNickName);
 		$confirmacionCorreo=mysql_num_rows($queryCorreo);
-		//echo $confirmacionCorreo.$confirmacionNickName;
+		
 		if($confirmacionNickName==0 && $confirmacionCorreo==0){	
-				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$password."','".$telefono."','Activo','Usuario','defauld')");
+			$codPassword=sha1($password);
+				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','defauld')");
 				
 				if($consulta){
 					header('location:index.php');

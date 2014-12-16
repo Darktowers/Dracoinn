@@ -1,3 +1,8 @@
+<?php
+session_start();
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	{
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +28,7 @@
 							<figure class="usuario round left">
 								<img src="img_user/user.jpg" alt="Usuario" width="40" height="40">
 							</figure>
-							<span class="left username">Darknight</span>		
+							<span class="left username"><?php echo $_SESSION['nick']; ?></span>		
 							<div id="boton" class="menu icon-confi confi-icon left"></div>
 						</div>
 
@@ -35,7 +40,7 @@
 				<nav id="menu"class="menu_nav">
 								<ul class="menu_ul">
 									<li class="item"><a href="">Perfil</a></li>
-									<li class="item"><a href="">Cerrar Sesión</a></li>
+									<li class="item"><a href="../includes/closeconexion.php">Cerrar Sesión</a></li>
 								</ul>
 							</nav>
 				<nav class="menu2_nav">
@@ -56,3 +61,11 @@
 	</script>	
 </body>
 </html>
+<?php
+echo $_SESSION['nick'].$_SESSION['rol'];
+}
+else
+{
+	header('location:../index.php');
+}
+?>
