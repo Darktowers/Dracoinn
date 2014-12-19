@@ -68,16 +68,13 @@ body
 header
 	position relative
 	background white
-figure
-	margin 0
-	width 40px
-	img
-		vertical-align top
+
 .wrap
 	width 80%
 .round
 	border-radius 50%
 	overflow hidden
+	border 1px solid #4d07cd
 .left
 	float left
 .right
@@ -92,6 +89,11 @@ figure
 	position relative
 	padding 0.3em 0
 	overflow hidden
+figure
+	margin 0
+	width 40px
+	img
+		vertical-align top
 .isotipo 
 	width 100px
 .logo
@@ -234,4 +236,80 @@ figure
 .contenido
 	height 1000px
 	background white
-	margin-top 1em			
+	margin-top 1em
+
+.search	
+	display inline-block
+	border-radius 3px 0 0 3px
+	padding 0.6em 1.5em
+	margin 1em 0 1em 0
+	text-align center
+	font-size 1.5em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd
+	width 50%
+	&:focus
+		box-shadow 0 0 7px #4d07cd
+		background #fff
+		border 1px solid #4d07cd
+		color #783B8C
+	
+.contenido-cartas
+	display inline-block
+	width 72%
+	text-align center
+	
+.searching
+	display inline-block
+	width 72%
+	.searchicon
+		width 58px
+		height 58px
+		display inline-block
+		margin 0px
+		padding 0px
+		position absolute
+		text-align center
+		top 24px
+		border 1px solid #4d07cd
+		border-radius 0 3px 3px 0
+		background none repeat scroll 0% 0% rgba(77, 7, 205, 0.77)
+		cursor pointer
+		transition all 0.8s
+		&:hover
+			background none repeat scroll 0% 0% rgba(77, 7, 205, 1)	
+			
+		
+	.search-icon
+		font-size 1.5em
+		line-height 2.5
+		display inline-block
+		color white
+.contenedorusuario
+	
+	.avatar
+		display inline-block
+		width 20%
+		
+		figure
+			margin 0
+			width 200px
+			display: inline-block;
+			img
+				vertical-align top
+.cartas
+	display inline-block
+	width 80%
+	padding-top 4em	
+	.carta-item
+		display inline-block
+		width 200px
+		margin-bottom 1em
+				
+			
+					 		
