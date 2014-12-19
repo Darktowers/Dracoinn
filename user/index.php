@@ -72,27 +72,27 @@ session_start();
 						<div class="cartas right">
 							<div class="carta-item">
 								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="200" height="200">
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
 							<div class="carta-item">
 								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="200" height="200">
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
 							<div class="carta-item">
 								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="200" height="200">
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
 							<div class="carta-item">
 								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="200" height="200">
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
 							<div class="carta-item">
 								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="200" height="200">
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
 							<div class="comprar"></div>
