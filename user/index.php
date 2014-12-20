@@ -60,7 +60,7 @@ session_start();
 						</div>
 					</form>
 					<div class="contenedorusuario">
-						<div class="avatar left">
+						<div class="avatar">
 							<h3>Usuario</h3>
 							<figure class="img-avatar round">
 								<img src="img_user/user.jpg" alt="user" width="200" height="200">
@@ -95,7 +95,7 @@ session_start();
 									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
 								</figure>
 							</div>
-							<div class="comprar"></div>
+							<div class="comprar round"><img src="img/cart.png" alt=""></div>
 						</div>
 					</div>
 

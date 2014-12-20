@@ -234,7 +234,7 @@ figure
 	
 	
 .contenido
-	height 1000px
+	height auto
 	background white
 	margin-top 1em
 
@@ -261,12 +261,12 @@ figure
 	
 .contenido-cartas
 	display inline-block
-	width 72%
+	width 100%
 	text-align center
 	
 .searching
 	display inline-block
-	width 72%
+	width 50%
 	.searchicon
 		width 58px
 		height 58px
@@ -291,10 +291,8 @@ figure
 		display inline-block
 		color white
 .contenedorusuario
-	
 	.avatar
-		display inline-block
-		width 20%
+		display block
 		
 		figure
 			margin 0
@@ -303,13 +301,31 @@ figure
 			img
 				vertical-align top
 .cartas
-	display inline-block
-	width 80%
-	padding-top 4em	
+	display block
+	width 100%
+	padding-top 2em
+	text-align center	
 	.carta-item
 		display inline-block
 		width 150px
 		margin-bottom 1em
+		
 				
-			
-					 		
+	.comprar
+		display block
+		width 60px
+		height 60px
+		background white
+		margin 0 auto
+		border 4px solid morado
+		transition all 0.8s
+		&:hover
+			background green
+			cursor pointer
+			border 4px solid green
+		img
+			width 30px
+			vertical-align top
+			position relative
+			top 28%		
+								 		
