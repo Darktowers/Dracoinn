@@ -63,7 +63,7 @@ session_start();
 						<div class="avatar">
 							<h3>Usuario</h3>
 							<figure class="img-avatar round">
-								<img src="img_user/user.jpg" alt="user" width="200" height="200">
+								<img src="img_user/user.jpg" alt="user" width="150" height="150">
 							</figure>
 							<h4>usuario@mail.com</h4>
 							<h4>+7143170</h4>
