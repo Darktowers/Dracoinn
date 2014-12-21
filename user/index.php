@@ -53,12 +53,14 @@ session_start();
 					</ul>
 				</nav>
 				<div class="contenido-cartas">
-					<form action="" class="searching">
-						<input type="text" name="search" placeholder="Buscar Usuario ..." class="search" />
-						<div class="searchicon">
-							<span class="icon-search search-icon"></span>
-						</div>
-					</form>
+					<div id="buscador">
+						<form action="" class="searching">
+							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
+							<div class="searchicon">
+								<span class="icon-search search-icon"></span>
+							</div>
+						</form>
+					</div>
 					<div class="contenedorusuario">
 						<div class="avatar">
 							<h3>Usuario</h3>
@@ -106,7 +108,12 @@ session_start();
 	<script src="../jquery/jquery-1.11.1.min.js">
 	</script>
 	<script src="js/js.js">
-	</script>	
+	</script>
+	<script src="js/ajaxBusqueda.js">
+	</script>
+	<script src="js/jquery-ui-1.11.2.custom/jquery-ui.js">
+	</script>
+	<div id="busque"></div>	
 </body>
 </html>
 <?php
