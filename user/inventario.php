@@ -1,20 +1,15 @@
 <?php
 session_start();
-@$busqueda=$_SESSION['usuarioBusqueda'];
-@$usuario=$_SESSION['nick'];
-include_once '../includes/conexion.php';
-
 	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
 	{
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<title><?php echo $usuario ?></title>
+	<title>Home</title>
 </head>
 <body>
 	<div class="back">
@@ -28,27 +23,10 @@ include_once '../includes/conexion.php';
 						<figure class="logo left isotipo">
 							<img src="../img/logo.png" alt="Usuario">
 						</figure>
-						<?php 
-							$resul=mysql_query("SELECT * FROM usuario WHERE nickName='$usuario'");
-							  if($row=mysql_fetch_array($resul))
-							  {
-										  do{
-										
-											
-									
-												$correoUsuario=stripslashes($row["correo"]);
-												$telefonoUsuario=stripslashes($row["correo"]);
-												$fotoUsuario=stripslashes($row["urlFotoUsuario"]);
-										
-										
-										  }while($row=mysql_fetch_array($resul));
-							  }
-
-					 ?>	
 						<div class="user right">
 							<span class="notificaciones icon-eye eye-icon left" id="notificaciones"></span>
 							<figure class="usuario round left">
-								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
+								<img src="img_user/user.jpg" alt="Usuario" width="40" height="40">
 							</figure>
 							<span class="left username"><?php echo $_SESSION['nick']; ?></span>		
 							<div id="boton" class="menu icon-confi confi-icon left"></div>
@@ -67,8 +45,8 @@ include_once '../includes/conexion.php';
 							</nav>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
-						<li class="menu2-item"><a href="" class="active">Inicio</a></li>
-						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
+						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
+						<li class="menu2-item"><a href="" class="active">Inventario</a></li>
 						<li class="menu2-item"><a href="">Historial</a></li>
 						<li class="menu2-item"><a href="">Soporte</a></li>
 						<li class="menu2-item"><a href="">Politicas</a></li>
@@ -83,11 +61,43 @@ include_once '../includes/conexion.php';
 							</div>
 						</form>
 					</div>
-					
-
 					<div class="contenedorusuario">
-						<div class='cartas right'>
-							
+						<div class="avatar">
+							<h3>Usuario</h3>
+							<figure class="img-avatar round">
+								<img src="img_user/user.jpg" alt="user" width="150" height="150">
+							</figure>
+							<h4>usuario@mail.com</h4>
+							<h4>+7143170</h4>
+
+						</div>
+						<div class="cartas right">
+							<div class="carta-item">
+								<figure>
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
+								</figure>
+							</div>
+							<div class="carta-item">
+								<figure>
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
+								</figure>
+							</div>
+							<div class="carta-item">
+								<figure>
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
+								</figure>
+							</div>
+							<div class="carta-item">
+								<figure>
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
+								</figure>
+							</div>
+							<div class="carta-item">
+								<figure>
+									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
+								</figure>
+							</div>
+							<div class="comprar round"><img src="img/cart.png" alt=""></div>
 						</div>
 					</div>
 
