@@ -33,7 +33,11 @@ $(function() {
 									success:function(data)
 									{
 										$(".contenedorusuario").css("display","block");
+<<<<<<< HEAD
 										$(".cartas").html(data);
+=======
+										$(".contenedorusuario").html(data);
+>>>>>>> origin/master
 
 									}
 								});

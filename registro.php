@@ -66,7 +66,7 @@ if($_POST){
 		
 		if($confirmacionNickName==0 && $confirmacionCorreo==0){	
 			$codPassword=sha1($password);
-				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','defauld')");
+				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','img_user/default.png')");
 				
 				if($consulta){
 					header('location:index.php');
