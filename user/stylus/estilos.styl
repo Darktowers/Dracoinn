@@ -63,6 +63,15 @@ morado = #4d07cd
 
 .icon-close:before 
 	content "\e608"
+.busque
+	list-style none
+	width: 59%;
+	border: 1px solid;
+	margin: 0 auto;
+	text-align: left;
+.resultados
+	background white
+		
 body
 	background black	
 header
@@ -174,7 +183,7 @@ figure
 		.menu2-item
 			display: block
 			margin:0
-			
+			position: relative;
 			.active
 				background morado
 				&:after
@@ -242,10 +251,9 @@ figure
 	display inline-block
 	border-radius 3px 0 0 3px
 	padding 0.6em 1.5em
-	margin 1em 0 1em 0
+	margin 1em 0 0 0
 	text-align center
 	font-size 1.5em
-	margin-bottom 1em
 	border 0
 	border 1px solid #4d07cd
 	font-weight normal
@@ -263,6 +271,7 @@ figure
 	display inline-block
 	width 100%
 	text-align center
+	height 750px
 	
 .searching
 	display inline-block
@@ -291,6 +300,7 @@ figure
 		display inline-block
 		color white
 .contenedorusuario
+	display none
 	.avatar
 		display block
 		
