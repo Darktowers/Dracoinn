@@ -3,7 +3,6 @@ session_start();
 	if($_POST)
 	{
 		$letra =$_POST['buscar'];
-<<<<<<< HEAD
 		
 		
 		$tarjetasvalidas= array("0","0","0","0","0");
@@ -11,9 +10,6 @@ session_start();
 
 
 
-=======
-		echo"$letra";
->>>>>>> origin/master
 		if ($letra != "")
 		{
 			include_once '../../includes/conexion.php';
@@ -38,7 +34,6 @@ session_start();
 														<h4>$correoBusqueda</h4>
 														<h4>+$telefonoBusqueda</h4>
 
-<<<<<<< HEAD
 													</div>";
 													$cont=0;
 													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra'");
@@ -126,38 +121,6 @@ session_start();
 										 					else{
 										 						echo"<h1>Usuario sin tarjetas asignadas</h1>";
 										 					}			
-=======
-													</div>
-													<div class='cartas right'>
-														<div class='carta-item'>
-															<figure>
-																<img src='Tarjetas/draegg.png' alt='' width='150' height='200'>
-															</figure>
-														</div>
-														<div class='carta-item'>
-															<figure>
-																<img src='Tarjetas/draegg.png' alt='' width='150' height='200'>
-															</figure>
-														</div>
-														<div class='carta-item'>
-															<figure>
-																<img src='Tarjetas/draegg.png' alt='' width='150' height='200'>
-															</figure>
-														</div>
-														<div class='carta-item'>
-															<figure>
-																<img src='Tarjetas/draegg.png' alt='' width='150' height='200'>
-															</figure>
-														</div>
-														<div class='carta-item'>
-															<figure>
-																<img src='Tarjetas/draegg.png' alt='' width='150' height='200'>
-															</figure>
-														</div>
-														<div class='comprar round'><img src='img/cart.png' alt=''></div>
-													</div> ";
-										
->>>>>>> origin/master
 										
 										  }while($row=mysql_fetch_array($resul));
 							  }

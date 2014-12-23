@@ -86,13 +86,9 @@ include_once '../includes/conexion.php';
 					
 
 					<div class="contenedorusuario">
-<<<<<<< HEAD
 						<div class='cartas right'>
 							
 						</div>
-=======
-						
->>>>>>> origin/master
 					</div>
 
 				</div>
