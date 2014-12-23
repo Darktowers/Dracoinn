@@ -4,7 +4,7 @@ session_start();
 	{
 		$letra =$_POST['buscar'];
 		
-		
+		$tarjetas= array("10","11","12","13","14");
 		$tarjetasvalidas= array("0","0","0","0","0");
 
 
@@ -43,7 +43,7 @@ session_start();
 																	  		$fkTarjeta=stripslashes($row1["fkTarjeta"]);
 																	  			
 																	  		$cont++;
-																	  		echo"$cont";
+																	  		
 																	  		if($fkTarjeta=="10"){
 																	  				$tarjetasvalidas[0]=$fkTarjeta;	
 																	  		}elseif ($fkTarjeta=="11") {
