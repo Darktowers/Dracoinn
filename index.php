@@ -17,8 +17,12 @@ if(@$_SESSION['usuario']!=true){
 			
 		</div>
 		<div class="formu">
-
+		
 			<div class="caja">
+				<div class="message">
+					<div class="cerrar"></div>
+					<h3>Error en usuario o contraseña</h3>
+				</div>
 				<h1>Login</h1>
 				<form action="" method="POST">
 					<div class="usuario">
@@ -39,6 +43,8 @@ if(@$_SESSION['usuario']!=true){
 		</div>
 		
 	</div>	
+	<script src="jquery/jquery-1.11.1.min.js">
+	    </script>
 </body>
 </html>
 <?php 
@@ -63,8 +69,13 @@ if($_POST)
 	
 	else{
 		?>
+		
 			<script type="text/javascript">
 				//Christian meter ligthbox con texto de error de contraseña o nickname 
+				$(function(){
+					$(".message").show();
+
+				});
 			</script>
 		<?php
 	}
