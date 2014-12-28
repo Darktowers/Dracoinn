@@ -83,7 +83,7 @@ session_start();
 																													  		echo"
 																																	<div class='carta-item' id='active'>
 																																		<figure>
-																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
+																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick' width='150' height='200'>
 																																		</figure>
 																																	</div>
 																																";
@@ -116,7 +116,7 @@ session_start();
 										 									}
 
 										 							}	
-										 					echo"<div class='comprar round'><img src='img/cart.png' alt=''></div> ";			
+										 					echo"<div class='comprar round' id='comprar'><img src='img/cart.png' alt=''></div> ";			
 										 					}
 										 					else{
 										 						echo"<h1>Usuario sin tarjetas asignadas</h1>";

@@ -14,7 +14,7 @@ include_once '../includes/conexion.php';
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<title><?php echo $usuario ?></title>
+	<title ><?php echo $usuario ?></title>
 </head>
 <body>
 	<div class="back">
@@ -50,7 +50,7 @@ include_once '../includes/conexion.php';
 							<figure class="usuario round left">
 								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
 							</figure>
-							<span class="left username"><?php echo $_SESSION['nick']; ?></span>		
+							<span class="left username" id="usuarioD" value="<?php echo $usuario ?>"><?php echo $_SESSION['nick']; ?></span>		
 							<div id="boton" class="menu icon-confi confi-icon left"></div>
 						</div>
 
