@@ -34,50 +34,14 @@ $(function() {
 									{
 										$(".contenedorusuario").css("display","block");
 										$(".cartas").html(data);
-
-											var clicks=0;
-												$(".contadorClick").click(
-													function(){
-														
-														clicks++;
-														mod=clicks % 2;
-														
-														if (mod==1)
-															{
-																$(".carta-item").css("background","green");
-																$(this).css("opacity","0.5");
-																var valorCarta = $(this).attr("value");
-																
-															}
-															else
-															{
-																$(this).css("opacity","1");
-																valorCarta="none";
-															}
-															$("#comprar").click
-															(
-																function()
-																{
-																	var usuarioD=$("#usuarioD").attr("value");
-																	var usuarioR=valor;
-
-																	
-																	alert("Seguro de comprar //Christian lithgbox de confirmacion de compra");
-																	$.ajax({
-																		type:"POST",
-																		url:"php/generaNotificacion.php",
-																		data:{ valorC : valorCarta , usuarioD : usuarioD , usuarioR : usuarioR},
-																		success:function(data)
-																		{
-																			alert(data);
-																		}
-																	});
-																}
-															)
-													}
-												);
-											
-
+										
+										$("#comprar").click
+										(
+											function()
+											{
+												alert("llega");
+											}
+										);
 									}
 								});
 							}

@@ -84,7 +84,9 @@ session_start();
 																																	<div class='carta-item' id='active'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick' width='150' height='200'>
+																																			<input type='radio' class='' value='".$tarjetasvalidas[$i]."' name='cartasRadio' style='width: 150px; height: 200px; top: -200px; position: relative;'>
 																																		</figure>
+
 																																	</div>
 																																";
 
@@ -102,11 +104,11 @@ session_start();
 																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
 																													  		
 																													  		echo"
-																																	<div class='carta-item' id='inactive'>
+																																	<div class='carta-item' id='inactive' style='position:relative;'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
 																																		</figure>
-																																		<div class='inactive'></div>
+																																		<div class='inactive' style='position:relative; top:-200px'></div>
 																																	</div>
 																																	
 																																";
