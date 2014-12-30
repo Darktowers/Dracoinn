@@ -15,10 +15,6 @@
 		<div class="formu">
 
 			<div class="registro"style="top: 10%;">
-				<div class="message" style="bottom:0;">
-					<div class="cerrar icon-close"></div>
-					<h3 id="mensaje"></h3>
-				</div>
 				<h1>Registro</h1>
 				<form action="" method="POST">
 					<div class="usuario">
@@ -50,9 +46,7 @@
 			
 		</div>
 		
-	</div>
-	<script src="jquery/jquery-1.11.1.min.js">
-	    </script>	
+	</div>	
 </body>
 </html>
 <?php 
@@ -70,50 +64,16 @@ if($_POST){
 		$confirmacionNickName=mysql_num_rows($queryNickName);
 		$confirmacionCorreo=mysql_num_rows($queryCorreo);
 		
-		if($confirmacionNickName==0){
-		   if($confirmacionCorreo==0){
-		   	$codPassword=sha1($password);
+		if($confirmacionNickName==0 && $confirmacionCorreo==0){	
+			$codPassword=sha1($password);
 				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','img_user/default.png')");
+				
 				if($consulta){
 					header('location:index.php');
-				}	
-		   }else{ ?> <script>  
-		   					$(function(){
-		   						$("#mensaje").html("Correo ya existe");
-								$(".message").show("slow");
-								$(".cerrar").click(function(){
-									$(".message").hide("slow");
-								});
-
-				});
-		   		  </script><!---echo"Correo ya existe";--><?php }	
-			
-				
-				
-		}else{?><script>  
-		   					$(function(){
-		   						$("#mensaje").html("Usuario ya existe");
-								$(".message").show("slow");
-								$(".cerrar").click(function(){
-									$(".message").hide("slow");
-								});
-
-				});
-		   		  </script><?php
-
-	}
-	}else{?> <script>  
-		   					$(function(){
-		   						$("#mensaje").html("Contraseñas no son iguales");
-								$(".message").show("slow");
-								$(".cerrar").click(function(){
-									$(".message").hide("slow");
-								});
-
-				});
-		   		  </script><?php
-
+				}
+				else{echo "No existe";}
 		}
-
+		else{echo "repetido";}
+	}
 }
 ?>
