@@ -1,0 +1,33 @@
+<style>
+    div.entry {
+    position: relative;
+    padding: 8px;
+    width: 50%;
+}
+div.entry div.highlight {
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+div.entry input:checked ~ div.highlight {
+    background-color: orange;
+}
+</style>
+
+
+<div class="entry">
+    <input type="radio" name="list" />This is one option
+    <div class="highlight"></div>
+</div>
+<div class="entry">
+    <input type="radio" name="list" />This is another option
+    <div class="highlight"></div>
+</div>
+<div class="entry">
+    <input type="radio" name="list" />This is a third option
+    <div class="highlight"></div>
+</div>
