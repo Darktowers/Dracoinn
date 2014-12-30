@@ -101,8 +101,7 @@ include_once '../includes/conexion.php';
 	</script>
 	<script src="js/ajaxBusqueda.js">
 	</script>
-	<script src="js/jquery-ui-1.11.2.custom/jquery-ui.js">
-	</script>
+	
 	<div id="busque" class="busque"></div>	
 </body>
 </html>

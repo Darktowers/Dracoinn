@@ -1,3 +1,21 @@
+<style>
+	
+div.highlight {
+    display: none;
+	position: absolute;
+	background: rgba(76, 69, 69, 0.86);
+	z-index: 103;
+	width: 150px;
+	height: 200px;
+	top: 0;
+	right: 0;
+	z-index: 0;
+}
+div.carta-item input:checked ~ div.highlight {
+	display: inline-block;
+    background-color: rgba(59, 4, 118, 0.52);
+}
+</style>
 <?php 
 session_start(); 
 	if($_POST)
@@ -82,10 +100,12 @@ session_start();
 																													  		
 																													  		echo"
 																																	<div class='carta-item' id='active'>
+																																	<input type='radio' class='' value='".$tarjetasvalidas[$i]."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick' width='150' height='200'>
-																																			<input type='radio' class='' value='".$tarjetasvalidas[$i]."' name='cartasRadio' style='width: 150px; height: 200px; top: -200px; position: relative;'>
+																																			
 																																		</figure>
+																																		<div class='highlight'></div>
 
 																																	</div>
 																																";
@@ -104,11 +124,11 @@ session_start();
 																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
 																													  		
 																													  		echo"
-																																	<div class='carta-item' id='inactive' style='position:relative;'>
+																																	<div class='carta-item' id='inactive'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
 																																		</figure>
-																																		<div class='inactive' style='position:relative; top:-200px'></div>
+																																		<div class='inactive'></div>
 																																	</div>
 																																	
 																																";
@@ -131,3 +151,10 @@ session_start();
 	}
 
 ?>
+<script>
+		$("#comprar").click(function() {
+			var lol = $("input:checked").val();
+			alert(lol);
+		});
+												
+									</script>
