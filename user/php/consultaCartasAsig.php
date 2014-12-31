@@ -151,10 +151,3 @@ session_start();
 	}
 
 ?>
-<script>
-		$("#comprar").click(function() {
-			var lol = $("input:checked").val();
-			alert(lol);
-		});
-												
-									</script>

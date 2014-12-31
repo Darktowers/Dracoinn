@@ -84,13 +84,13 @@ include_once '../includes/conexion.php';
 						</form>
 					</div>
 					
-					<form action="" type="POST" id="envioNotificacion">
+					
 					<div class="contenedorusuario">
 						<div class='cartas right'>
 							
 						</div>
 					</div>
-					</form>
+					
 				</div>
 			</section>
 		</div>	

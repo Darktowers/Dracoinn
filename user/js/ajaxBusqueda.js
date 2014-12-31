@@ -39,7 +39,45 @@ $(function() {
 										(
 											function()
 											{
-												alert("llega");
+												
+												var valorCarta = $("input:checked").val();
+												if (valorCarta)
+												{
+													var confirmar=confirm("Desea continuar con la compra.");
+													if(confirmar){
+														var usuarioD=$("#usuarioD").attr("value");
+														var usuarioR=valor;
+														
+														$.ajax(
+														{
+															type:"POST",
+															url:"php/generaNotificacion.php",
+															data:{ valorC : valorCarta , usuarioD : usuarioD , usuarioR : usuarioR},
+															success:function(data)
+															{
+																if(data="true")
+																{
+																	alert("Se genero correctamente la solicitud.");
+																	document.location.reload();
+																}
+																else
+																{
+																	alert("A ocurrido un problema intentalo mas tarde.");
+																	document.location.reload();
+																}
+															}
+														});
+													}
+													else
+													{
+														alert("Ha cancelado la compra.")
+														document.location.reload();
+													}	
+												}
+												else
+												{
+													alert("No a seleccionado ninguna carta");
+												}
 											}
 										);
 									}
