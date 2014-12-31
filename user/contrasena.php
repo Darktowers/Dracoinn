@@ -61,36 +61,40 @@ include_once '../includes/conexion.php';
 			<section class="contenido wrap center-block relative">
 				<nav id="menu"class="menu_nav left">
 								<ul class="menu_ul">
-									<li class="item"><a href="perfil.php">Perfil</a></li>
+									<li class="item"><a href="">Perfil</a></li>
 									<li class="item"><a href="../includes/closeconexion.php">Cerrar Sesión</a></li>
 								</ul>
 							</nav>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
-						<li class="menu2-item"><a href="" class="active">Inicio</a></li>
-						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
-						<li class="menu2-item"><a href="">Historial</a></li>
-						<li class="menu2-item"><a href="">Soporte</a></li>
-						<li class="menu2-item"><a href="">Politicas</a></li>
+						<li class="menu2-item"><a href="index.php">Inicio</a></li>
+						<li class="menu2-item"><a href="perfil.php" >Perfil</a></li>
+						<li class="menu2-item"><a href="" class="active">Cambiar Contraseña</a></li>
+					
 					</ul>
 				</nav>
-				<div class="contenido-cartas">
-					<div id="buscador">
-						<form action="" class="searching">
-							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
-							<div class="searchicon">
-								<span class="icon-search search-icon"></span>
-							</div>
-						</form>
-					</div>
+				<div class="contenidos">
+					<br>
+					<br>
+					<h2>Cambiar Contraseña</h2>
+					<br>
 					
-					<form action="" type="POST" id="envioNotificacion">
-					<div class="contenedorusuario">
-						<div class='cartas right'>
-							
-						</div>
+					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
+					
+					<div class="actpassword">
+						<span class="icon-user"></span>
+						<input type="password" name="actpassword" placeholder="Contraseña Actual" required autocomplete="off">
 					</div>
-					</form>
+					<div class="password">
+						<span class="icon-key"></span>
+						<input type="password" name="newpassword" placeholder="Nueva Contraseña" required autocomplete="off">
+					</div>
+					<div class="repassword">
+						<span class="icon-key"></span>
+						<input type="password" name="repassword" placeholder="Repetir Contraseña" required autocomplete="off">
+					</div>
+					<input type="submit" value="Cambiar Contraseña">
+				</form>
 				</div>
 			</section>
 		</div>	

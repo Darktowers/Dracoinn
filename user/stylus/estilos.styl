@@ -27,7 +27,50 @@ morado = #4d07cd
 	-webkit-font-smoothing antialiased
 	-moz-osx-font-smoothing grayscale
 
+.contenidos
+	span
+		position: absolute;
+		margin: 13px 0 0 10px;
+input 
+	display inline-block
+	border-radius 3px
+	padding 0.6em 1.5em
+	margin-bottom 1em
+	text-align center
+	font-size 1.1em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd 
+	
+	
+	&:focus
+		-webkit-box-shadow 0 0 14px #1389ed
+		box-shadow 0 0 14px #783B8C
+		background #fff
+		border 1px solid #783B8C
+		color #783B8C
+		
+input[type=submit], button
+				
+	border 0
+	background none
+	border 2px solid #4d07cd
+	padding 25px 50px
+	width auto
+	line-height 0px
+	transition all 0.2s ease-in-out 0s
+	color #4d07cd
+	font-weight bold
 
+	&:hover
+		background #4d07cd
+		border 2px solid transparent
+		font-weight bold
+		color #fff		
 
 .inactive
 	display inline-block;

@@ -37,7 +37,7 @@ include_once '../includes/conexion.php';
 											
 									
 												$correoUsuario=stripslashes($row["correo"]);
-												$telefonoUsuario=stripslashes($row["correo"]);
+												$telefonoUsuario=stripslashes($row["telefono"]);
 												$fotoUsuario=stripslashes($row["urlFotoUsuario"]);
 										
 										
@@ -61,36 +61,41 @@ include_once '../includes/conexion.php';
 			<section class="contenido wrap center-block relative">
 				<nav id="menu"class="menu_nav left">
 								<ul class="menu_ul">
-									<li class="item"><a href="perfil.php">Perfil</a></li>
+									<li class="item"><a href="">Perfil</a></li>
 									<li class="item"><a href="../includes/closeconexion.php">Cerrar Sesión</a></li>
 								</ul>
 							</nav>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
-						<li class="menu2-item"><a href="" class="active">Inicio</a></li>
-						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
-						<li class="menu2-item"><a href="">Historial</a></li>
-						<li class="menu2-item"><a href="">Soporte</a></li>
-						<li class="menu2-item"><a href="">Politicas</a></li>
+						<li class="menu2-item"><a href="index.php">Inicio</a></li>
+						<li class="menu2-item"><a href="" class="active">Perfil</a></li>
+						<li class="menu2-item"><a href="contrasena.php" >Cambiar Contraseña</a></li>
 					</ul>
 				</nav>
-				<div class="contenido-cartas">
-					<div id="buscador">
-						<form action="" class="searching">
-							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
-							<div class="searchicon">
-								<span class="icon-search search-icon"></span>
-							</div>
-						</form>
+				<div class="contenidos">
+					<br>
+					<br>
+					<h2>Perfil</h2>
+					<br>
+					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
+					<div class="imagen-actual" style="width: 150px; position: relative; display: inline-block;">
+						<img src="<?php echo"$fotoUsuario"; ?>" alt="" width='150' height='150'>
+
+						<input type="file" name="file" style="width: 150px; height: 150px; border-radius: 50%; position: absolute; padding: 0px; right: 0px;top: 0px; opacity: 0;">
+					</div>
+					<div class="recuerdo"><h3>Haz Click para cambiar el avatar</h3></div>
+					
+					<div class="email">
+						<span class="icon-location"></span>
+						<input type="email" name="email" placeholder="E-mail" required autocomplete="off" value="<?php echo"$correoUsuario"; ?>" style="width: 240px;">
+					</div>
+					<div class="telefono">
+						<span class="icon-envelope"></span>
+						<input type="text" name="telefono" placeholder="Telefono" required autocomplete="off" value="<?php echo"$telefonoUsuario"; ?>">
 					</div>
 					
-					<form action="" type="POST" id="envioNotificacion">
-					<div class="contenedorusuario">
-						<div class='cartas right'>
-							
-						</div>
-					</div>
-					</form>
+					<input type="submit" value="Cambiar datos">
+				</form>
 				</div>
 			</section>
 		</div>	

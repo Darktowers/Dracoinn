@@ -1,15 +1,20 @@
 <?php
 session_start();
+@$busqueda=$_SESSION['usuarioBusqueda'];
+@$usuario=$_SESSION['nick'];
+include_once '../includes/conexion.php';
+
 	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
 	{
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<title>Home</title>
+	<title ><?php echo $usuario ?></title>
 </head>
 <body>
 	<div class="back">
@@ -23,12 +28,29 @@ session_start();
 						<figure class="logo left isotipo">
 							<img src="../img/logo.png" alt="Usuario">
 						</figure>
+						<?php 
+							$resul=mysql_query("SELECT * FROM usuario WHERE nickName='$usuario'");
+							  if($row=mysql_fetch_array($resul))
+							  {
+										  do{
+										
+											
+									
+												$correoUsuario=stripslashes($row["correo"]);
+												$telefonoUsuario=stripslashes($row["correo"]);
+												$fotoUsuario=stripslashes($row["urlFotoUsuario"]);
+										
+										
+										  }while($row=mysql_fetch_array($resul));
+							  }
+
+					 ?>	
 						<div class="user right">
 							<span class="notificaciones icon-eye eye-icon left" id="notificaciones"></span>
 							<figure class="usuario round left">
-								<img src="img_user/user.jpg" alt="Usuario" width="40" height="40">
+								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
 							</figure>
-							<span class="left username"><?php echo $_SESSION['nick']; ?></span>		
+							<span class="left username" id="usuarioD" value="<?php echo $usuario ?>"><?php echo $_SESSION['nick']; ?></span>		
 							<div id="boton" class="menu icon-confi confi-icon left"></div>
 						</div>
 
@@ -39,7 +61,7 @@ session_start();
 			<section class="contenido wrap center-block relative">
 				<nav id="menu"class="menu_nav left">
 								<ul class="menu_ul">
-									<li class="item"><a href="">Perfil</a></li>
+									<li class="item"><a href="perfil.php">Perfil</a></li>
 									<li class="item"><a href="../includes/closeconexion.php">Cerrar Sesión</a></li>
 								</ul>
 							</nav>
@@ -61,46 +83,14 @@ session_start();
 							</div>
 						</form>
 					</div>
+					
+					<form action="" type="POST" id="envioNotificacion">
 					<div class="contenedorusuario">
-						<div class="avatar">
-							<h3>Usuario</h3>
-							<figure class="img-avatar round">
-								<img src="img_user/user.jpg" alt="user" width="150" height="150">
-							</figure>
-							<h4>usuario@mail.com</h4>
-							<h4>+7143170</h4>
-
-						</div>
-						<div class="cartas right">
-							<div class="carta-item">
-								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
-								</figure>
-							</div>
-							<div class="carta-item">
-								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
-								</figure>
-							</div>
-							<div class="carta-item">
-								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
-								</figure>
-							</div>
-							<div class="carta-item">
-								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
-								</figure>
-							</div>
-							<div class="carta-item">
-								<figure>
-									<img src="Tarjetas/draegg.png" alt="" width="150" height="200">
-								</figure>
-							</div>
-							<div class="comprar round"><img src="img/cart.png" alt=""></div>
+						<div class='cartas right'>
+							
 						</div>
 					</div>
-
+					</form>
 				</div>
 			</section>
 		</div>	
@@ -111,8 +101,7 @@ session_start();
 	</script>
 	<script src="js/ajaxBusqueda.js">
 	</script>
-	<script src="js/jquery-ui-1.11.2.custom/jquery-ui.js">
-	</script>
+	
 	<div id="busque" class="busque"></div>	
 </body>
 </html>
