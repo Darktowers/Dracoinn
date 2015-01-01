@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.9
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 23-12-2014 a las 22:57:04
--- Versión del servidor: 5.5.8
--- Versión de PHP: 5.3.5
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 31-12-2014 a las 04:32:12
+-- Versión del servidor: 5.6.21
+-- Versión de PHP: 5.6.3
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,19 +30,16 @@ CREATE TABLE IF NOT EXISTS `asignaciones` (
   `idAsignacion` int(15) NOT NULL DEFAULT '0',
   `fkUsuAsignador` varchar(50) DEFAULT NULL,
   `fkUsuPropietario` varchar(50) DEFAULT NULL,
-  `fkTarjeta` int(15) DEFAULT NULL,
-  PRIMARY KEY (`idAsignacion`),
-  KEY `fkUsuAsignador` (`fkUsuAsignador`),
-  KEY `fkUsuPropietario` (`fkUsuPropietario`),
-  KEY `fkTarjeta` (`fkTarjeta`)
+  `fkTarjeta` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `asignaciones`
+-- Volcado de datos para la tabla `asignaciones`
 --
 
 INSERT INTO `asignaciones` (`idAsignacion`, `fkUsuAsignador`, `fkUsuPropietario`, `fkTarjeta`) VALUES
-(1, 'Usuario', 'Usuario2', 10);
+(1, 'Usuario', 'Usuario2', 10),
+(2, 'WillDeveloper', 'Usuario2', 13);
 
 -- --------------------------------------------------------
 
@@ -51,14 +49,17 @@ INSERT INTO `asignaciones` (`idAsignacion`, `fkUsuAsignador`, `fkUsuPropietario`
 
 CREATE TABLE IF NOT EXISTS `estadosnotificacion` (
   `idEstadosNotificacion` int(15) NOT NULL DEFAULT '0',
-  `descripcion` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idEstadosNotificacion`)
+  `descripcion` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `estadosnotificacion`
+-- Volcado de datos para la tabla `estadosnotificacion`
 --
 
+INSERT INTO `estadosnotificacion` (`idEstadosNotificacion`, `descripcion`) VALUES
+(111, 'Pendiente'),
+(222, 'Vista'),
+(333, 'Vencida');
 
 -- --------------------------------------------------------
 
@@ -67,24 +68,23 @@ CREATE TABLE IF NOT EXISTS `estadosnotificacion` (
 --
 
 CREATE TABLE IF NOT EXISTS `notificaciones` (
-  `idNotificacion` int(15) NOT NULL DEFAULT '0',
+`idNotificacion` int(11) NOT NULL,
   `fkUsuarioDestinatario` varchar(50) DEFAULT NULL,
   `fkUsuarioRemitente` varchar(50) DEFAULT NULL,
   `fkIdTarjeta` int(15) DEFAULT NULL,
   `fechaNotificacion` date DEFAULT NULL,
-  `fechaVencimientoNotificacion` date DEFAULT NULL,
-  `fkEstadoNotificacion` int(15) DEFAULT NULL,
-  PRIMARY KEY (`idNotificacion`),
-  KEY `fkUsuarioDestinatario` (`fkUsuarioDestinatario`),
-  KEY `fkUsuarioRemitente` (`fkUsuarioRemitente`),
-  KEY `fkIdTarjeta` (`fkIdTarjeta`),
-  KEY `fkEstadoNotificacion` (`fkEstadoNotificacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fechaVencimientoNotificacion` int(5) DEFAULT NULL,
+  `fkEstadoNotificacion` int(15) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `notificaciones`
+-- Volcado de datos para la tabla `notificaciones`
 --
 
+INSERT INTO `notificaciones` (`idNotificacion`, `fkUsuarioDestinatario`, `fkUsuarioRemitente`, `fkIdTarjeta`, `fechaNotificacion`, `fechaVencimientoNotificacion`, `fkEstadoNotificacion`) VALUES
+(1, 'WillDeveloper', 'Usuario2', 10, '2014-12-31', 364, 111),
+(2, 'WillDeveloper', 'Usuario2', 13, '2014-12-31', 364, 111),
+(3, 'WillDeveloper', 'Usuario2', 10, '2014-12-31', 364, 111);
 
 -- --------------------------------------------------------
 
@@ -96,12 +96,11 @@ CREATE TABLE IF NOT EXISTS `tarjetas` (
   `idTarjeta` int(15) NOT NULL DEFAULT '0',
   `nombreTarjeta` varchar(50) DEFAULT NULL,
   `valor` int(15) DEFAULT NULL,
-  `urlImgTarjeta` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idTarjeta`)
+  `urlImgTarjeta` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `tarjetas`
+-- Volcado de datos para la tabla `tarjetas`
 --
 
 INSERT INTO `tarjetas` (`idTarjeta`, `nombreTarjeta`, `valor`, `urlImgTarjeta`) VALUES
@@ -124,36 +123,83 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `telefono` int(15) DEFAULT NULL,
   `estadoUsuario` varchar(50) DEFAULT NULL,
   `rolUsuario` varchar(50) DEFAULT NULL,
-  `urlFotoUsuario` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`nickName`)
+  `urlFotoUsuario` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcar la base de datos para la tabla `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`nickName`, `correo`, `passWord`, `telefono`, `estadoUsuario`, `rolUsuario`, `urlFotoUsuario`) VALUES
 ('Andres', 'caarrieta40@misena.edu.co', 'metallica', 8143170, 'Activo', 'Usuario', 'img_user/default.png'),
 ('Usuario', 'cristian-rock1@hotmail.com', 'e170f80139aac716ebca4320121de416231b4109', 8143170, 'Activo', 'Usuario', 'img_user/default.png'),
-('Usuario2', 'usuario2@usuario.com', 'metallica', 917777, 'activo', 'activo', 'img_user/default.png');
+('Usuario2', 'usuario2@usuario.com', 'metallica', 917777, 'activo', 'activo', 'img_user/default.png'),
+('WillDeveloper', 'willtf.wb@gmail.com', 'de5497386ea07babb1afcaeea8f49d340f6d1a5b', 1234, 'Activo', 'Usuario', 'img_user/default.png');
 
 --
--- Filtros para las tablas descargadas (dump)
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `asignaciones`
+--
+ALTER TABLE `asignaciones`
+ ADD PRIMARY KEY (`idAsignacion`), ADD KEY `fkUsuAsignador` (`fkUsuAsignador`), ADD KEY `fkUsuPropietario` (`fkUsuPropietario`), ADD KEY `fkTarjeta` (`fkTarjeta`);
+
+--
+-- Indices de la tabla `estadosnotificacion`
+--
+ALTER TABLE `estadosnotificacion`
+ ADD PRIMARY KEY (`idEstadosNotificacion`);
+
+--
+-- Indices de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+ ADD PRIMARY KEY (`idNotificacion`), ADD KEY `fkUsuarioDestinatario` (`fkUsuarioDestinatario`), ADD KEY `fkUsuarioRemitente` (`fkUsuarioRemitente`), ADD KEY `fkIdTarjeta` (`fkIdTarjeta`), ADD KEY `fkEstadoNotificacion` (`fkEstadoNotificacion`);
+
+--
+-- Indices de la tabla `tarjetas`
+--
+ALTER TABLE `tarjetas`
+ ADD PRIMARY KEY (`idTarjeta`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+ ADD PRIMARY KEY (`nickName`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `notificaciones`
+--
+ALTER TABLE `notificaciones`
+MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- Restricciones para tablas volcadas
 --
 
 --
 -- Filtros para la tabla `asignaciones`
 --
 ALTER TABLE `asignaciones`
-  ADD CONSTRAINT `asignaciones_ibfk_1` FOREIGN KEY (`fkUsuAsignador`) REFERENCES `usuario` (`nickName`),
-  ADD CONSTRAINT `asignaciones_ibfk_2` FOREIGN KEY (`fkUsuPropietario`) REFERENCES `usuario` (`nickName`),
-  ADD CONSTRAINT `asignaciones_ibfk_3` FOREIGN KEY (`fkTarjeta`) REFERENCES `tarjetas` (`idTarjeta`);
+ADD CONSTRAINT `asignaciones_ibfk_1` FOREIGN KEY (`fkUsuAsignador`) REFERENCES `usuario` (`nickName`),
+ADD CONSTRAINT `asignaciones_ibfk_2` FOREIGN KEY (`fkUsuPropietario`) REFERENCES `usuario` (`nickName`),
+ADD CONSTRAINT `asignaciones_ibfk_3` FOREIGN KEY (`fkTarjeta`) REFERENCES `tarjetas` (`idTarjeta`);
 
 --
 -- Filtros para la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`fkUsuarioDestinatario`) REFERENCES `usuario` (`nickName`),
-  ADD CONSTRAINT `notificaciones_ibfk_2` FOREIGN KEY (`fkUsuarioRemitente`) REFERENCES `usuario` (`nickName`),
-  ADD CONSTRAINT `notificaciones_ibfk_3` FOREIGN KEY (`fkIdTarjeta`) REFERENCES `tarjetas` (`idTarjeta`),
-  ADD CONSTRAINT `notificaciones_ibfk_4` FOREIGN KEY (`fkEstadoNotificacion`) REFERENCES `estadosnotificacion` (`idEstadosNotificacion`);
+ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`fkUsuarioDestinatario`) REFERENCES `usuario` (`nickName`),
+ADD CONSTRAINT `notificaciones_ibfk_2` FOREIGN KEY (`fkUsuarioRemitente`) REFERENCES `usuario` (`nickName`),
+ADD CONSTRAINT `notificaciones_ibfk_3` FOREIGN KEY (`fkIdTarjeta`) REFERENCES `tarjetas` (`idTarjeta`),
+ADD CONSTRAINT `notificaciones_ibfk_4` FOREIGN KEY (`fkEstadoNotificacion`) REFERENCES `estadosnotificacion` (`idEstadosNotificacion`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
