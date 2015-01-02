@@ -1,9 +1,6 @@
 var $boton = $('#boton'),
-	$boton2 = $("#botonnoti"),
 	$menu = $('#menu'),
-	$menu2 = $("#notificaciones"),
-	$switchs = 0,
-	$switchs2 = 0;
+	$switchs = 0;
 
 function mostrarMenu () {
 	
@@ -23,24 +20,5 @@ function mostrarMenu () {
 	
 
 }
-function mostrarMenu1 () {
-	
-	if($switchs2 == 0){
-
-		$menu2.slideToggle();
-		
-		$boton2.addClass('addboton1');
-		$switchs2 = 1;
-	}else{
-		$menu2.slideToggle();
-
-		$boton2.removeClass('addboton1');
-		$switchs2 = 0;
-	}
-	
-	
-
-}
 
 $boton.click(mostrarMenu);
-$boton2.click(mostrarMenu1);
