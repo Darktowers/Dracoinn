@@ -46,7 +46,7 @@ include_once '../includes/conexion.php';
 
 					 ?>	
 						<div class="user right">
-							<span class="notificaciones icon-eye eye-icon left" id="notificaciones"></span>
+							<span class="notificaciones icon-eye eye-icon left" id="notificaciones"><?php include_once 'php/numeroNotificacion.php'; ?></span>
 							<figure class="usuario round left">
 								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
 							</figure>
@@ -101,6 +101,7 @@ include_once '../includes/conexion.php';
 	</script>
 	<script src="js/ajaxBusqueda.js">
 	</script>
+
 	
 	<div id="busque" class="busque"></div>	
 </body>
