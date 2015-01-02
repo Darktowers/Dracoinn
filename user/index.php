@@ -43,7 +43,7 @@ include_once '../includes/conexion.php';
 
 					 ?>	
 						<div class="user right">
-							<span id="botonnoti"class="notificaciones icon-eye eye-icon left" ></span>
+							<span id="botonnoti"class="notificaciones icon-eye eye-icon left" ><?php include_once 'php/numeroNotificacion.php'; ?></span>
 							<figure class="usuario round left">
 								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
 							</figure>
