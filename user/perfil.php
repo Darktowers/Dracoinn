@@ -94,7 +94,7 @@ include_once '../includes/conexion.php';
 						<input type="text" name="telefono" placeholder="Telefono" required autocomplete="off" value="<?php echo"$telefonoUsuario"; ?>">
 					</div>
 					
-					<input type="submit" value="Cambiar datos">
+					<input type="submit" value="Cambiar datos" action="">
 				</form>
 				</div>
 			</section>
@@ -104,8 +104,7 @@ include_once '../includes/conexion.php';
 	</script>
 	<script src="js/js.js">
 	</script>
-	<script src="js/ajaxBusqueda.js">
-	</script>
+	
 	
 	<div id="busque" class="busque"></div>	
 </body>
