@@ -22,7 +22,7 @@ include_once '../includes/conexion.php';
 			
 		</div>
 		<div class="formu">
-			<?php include_once 'includes/header.php'?>
+			<?php include_once 'includes/header.php' ?>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
 						<li class="menu2-item"><a href="" class="active">Inicio</a></li>

@@ -14,7 +14,27 @@ include_once '../includes/conexion.php';
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<title ><?php echo $usuario ?></title>
+	<title ><?= $usuario ?></title>
+	
+	
+	<style>
+	
+div.highlight {
+    display: none;
+	position: absolute;
+	background: rgba(76, 69, 69, 0.86);
+	z-index: 103;
+	width: 150px;
+	height: 200px;
+	top: 0;
+	right: 0;
+	z-index: 0;
+}
+div.carta-item input:checked ~ div.highlight {
+	display: inline-block;
+    background-color: rgba(59, 4, 118, 0.52);
+}
+</style>
 </head>
 <body>
 	<div class="back">
@@ -22,75 +42,171 @@ include_once '../includes/conexion.php';
 			
 		</div>
 		<div class="formu">
-			<header class="header">
-				<div class="wrap center-block">
-					<div class="contenedor">
-						<figure class="logo left isotipo">
-							<img src="../img/logo.png" alt="Usuario">
-						</figure>
-						<?php 
-							$resul=mysql_query("SELECT * FROM usuario WHERE nickName='$usuario'");
-							  if($row=mysql_fetch_array($resul))
-							  {
-										  do{
-										
-											
-									
-												$correoUsuario=stripslashes($row["correo"]);
-												$telefonoUsuario=stripslashes($row["correo"]);
-												$fotoUsuario=stripslashes($row["urlFotoUsuario"]);
-										
-										
-										  }while($row=mysql_fetch_array($resul));
-							  }
-
-					 ?>	
-						<div class="user right">
-							<span class="notificaciones icon-eye eye-icon left" id="notificaciones"></span>
-							<figure class="usuario round left">
-								<img src="<?php echo"$fotoUsuario"; ?>" alt="Usuario" width="40" height="40">
-							</figure>
-							<span class="left username" id="usuarioD" value="<?php echo $usuario ?>"><?php echo $_SESSION['nick']; ?></span>		
-							<div id="boton" class="menu icon-confi confi-icon left"></div>
-						</div>
-
-					</div>
-				</div>
-			</header>
-
-			<section class="contenido wrap center-block relative">
-				<nav id="menu"class="menu_nav left">
-								<ul class="menu_ul">
-									<li class="item"><a href="perfil.php">Perfil</a></li>
-									<li class="item"><a href="../includes/closeconexion.php">Cerrar Sesión</a></li>
-								</ul>
-							</nav>
+			<?php include_once 'includes/header.php' ?>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
 						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
-						<li class="menu2-item"><a href="" class="active">Inventario</a></li>
+						<li class="menu2-item"><a href="inventario.php" class="active">Inventario</a></li>
 						<li class="menu2-item"><a href="">Historial</a></li>
 						<li class="menu2-item"><a href="">Soporte</a></li>
 						<li class="menu2-item"><a href="">Politicas</a></li>
 					</ul>
 				</nav>
 				<div class="contenido-cartas">
-					<div id="buscador">
-						<form action="" class="searching">
-							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
-							<div class="searchicon">
-								<span class="icon-search search-icon"></span>
-							</div>
-						</form>
-					</div>
 					
-					<form action="" type="POST" id="envioNotificacion">
-					<div class="contenedorusuario">
+					
+					
+					<div class="contenedorusuario" style="display: block;margin: 0 auto;">
+						<h1 style="
+    /* padding-top: 1em; */
+    position: absolute;
+    display: block;
+    width: 100%;
+">Inventario</h1>
 						<div class='cartas right'>
+
+							<?php
+								include_once '../includes/conexion.php';
+
+
+
+								$tarjetas= array("10","11","12","13","14");
+								$tarjetasvalidas= array("0","0","0","0","0");
+								$cont=0;
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0'");
+													
+														  if($row1=mysql_fetch_array($resul1))
+														  {
+																	  do{
+																	  		$fkTarjeta=stripslashes($row1["fkTarjeta"]);
+																	  			
+																	  		$cont++;
+																	  		
+																	  		if($fkTarjeta=="10"){
+																	  				$tarjetasvalidas[0]=$fkTarjeta;	
+																	  		}elseif ($fkTarjeta=="11") {
+																	  			$tarjetasvalidas[1]=$fkTarjeta;
+																	  		}elseif ($fkTarjeta=="12") {
+																	  			$tarjetasvalidas[2]=$fkTarjeta;
+																	  		}elseif ($fkTarjeta=="13") {
+																	  			$tarjetasvalidas[3]=$fkTarjeta;
+																	  		}elseif ($fkTarjeta=="14") {
+																	  			$tarjetasvalidas[4]=$fkTarjeta;
+																	  		}	
+
+
+													
+										 								}while($row1=mysql_fetch_array($resul1));
+										 					}
+										 					if($cont>0){
+										 						
+										 							/*for($i=0;$i<count($tarjetasvalidas);$i++)
+										 							{	
+										 									echo"<h2>$tarjetasvalidas[$i]</h2>";
+
+										 							}*/
+										 							
+										 							
+										 						for($i=0;$i<count($tarjetasvalidas);$i++)
+										 							{	
+										 									if($tarjetasvalidas[$i] != "0"){
+										 										
+										 										
+										 												$resul2=mysql_query("SELECT * FROM tarjetas WHERE idTarjeta='$tarjetasvalidas[$i]'");
+																										  if($row2=mysql_fetch_array($resul2))
+																										  {
+																													  do{
+																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$cantidad=mysql_num_rows($resul1);
+																													  	$idAsig=mysql_fetch_array($resul1);
+																														$mod=$cantidad%2;
+																														if($mod==0)
+																															{
+																																$cantidad=$cantidad/2; 
+																															}
+																															elseif($mod==1)
+																																{
+																																	$cantidad=($cantidad+1)/2;
+																																}
+													
+																													  		$imgTarjeta=stripslashes($row2["urlImgTarjeta"]);
+																													  		
+																													  		echo"
+																																	<div class='carta-item' id='active'>
+																																	<input type='radio' id='".$mod."' alt='".$idAsig['idAsignacion']."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+																																		<figure id='mod' >
+																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick valueCarta' width='150' height='200'>
+																																			
+																																		</figure>
+																																		<span class='contador round'>$cantidad</span>
+																																		<div class='highlight'></div>
+
+																																	</div>
+																																";
+
+																						 								}while($row2=mysql_fetch_array($resul2));
+																						 					}
+
+
+
+										 									}else
+										 									{
+										 											$resul3=mysql_query("SELECT * FROM tarjetas WHERE idTarjeta='$tarjetas[$i]'");
+																										  if($row3=mysql_fetch_array($resul3))
+																										  {
+																													  do{
+																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
+																													  		
+																													  		echo"
+																																	<div class='carta-item' id='inactive'>
+																																		<figure>
+																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
+																																		</figure>
+																																		<span class='contador round'>0</span>
+																																		<div class='inactive'></div>
+																																	</div>
+																																	
+																																";
+
+																						 								}while($row3=mysql_fetch_array($resul3));
+																						 					}	
+										 									}
+
+										 							}	
+										 						
+										 					}
+							?>
+						</div>
+						<div class="cartas" id="contenedorAsigna"style="top: 244px;position: absolute; display:none;" >
+							<div class='carta-item' id='cartas1'>
+							<input type='radio' class='' value='".$tarjetasvalidas[$i]."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+								<figure>
+									<img src=''  alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick imagenUrl' width='150' height='200'>
+									
+								</figure>
+								<form action="">
+								<input type="text" id="carta1" name="carta1" style="width: 93px;">
+								<button id="enviar1">Asignar</button>
+								<div class='highlight'></div>
+								</form>
+	
+							</div>
+							<div class='carta-item' id='cartas2'>
+							<input type='radio' class='' value='<?=$tarjetasvalidas[$i]?>' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+								<figure>
+									<img src='' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick imagenUrl' width='150' height='200'>
+									
+								</figure>
+								<form action="">
+								<input type="text" name="carta2" style="width: 93px;">
+								<button id="enviar2">Asignar</button>
+								<div class='highlight'></div>
+								</form>
 							
+							</div>
 						</div>
 					</div>
-					</form>
+					
 				</div>
 			</section>
 		</div>	
@@ -101,7 +217,11 @@ include_once '../includes/conexion.php';
 	</script>
 	<script src="js/ajaxBusqueda.js">
 	</script>
-	
+	<script src="js/incluNotifi.js">
+	</script>
+	<script src="js/asignaCartas.js">
+	</script>
+
 	<div id="busque" class="busque"></div>	
 </body>
 </html>
