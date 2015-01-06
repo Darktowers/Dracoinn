@@ -11,7 +11,7 @@
 										  do{
 										
 												$correoUsuario=stripslashes($row["correo"]);
-												$telefonoUsuario=stripslashes($row["correo"]);
+												$telefonoUsuario=stripslashes($row["telefono"]);
 												$fotoUsuario=stripslashes($row["urlFotoUsuario"]);
 										
 										}while($row=mysql_fetch_array($resul));

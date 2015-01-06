@@ -1,14 +1,22 @@
+<?php
+session_start();
+@$busqueda=$_SESSION['usuarioBusqueda'];
+@$usuario=$_SESSION['nick'];
+include_once '../includes/conexion.php';
+
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
 	<meta charset="UTF-8">
-	<meta description="Dracoin comunidad">
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<title>Cambiar Contraseña</title>
+	<title ><?php echo $usuario ?></title>
 </head>
 <body>
 	<div class="back">
@@ -16,14 +24,28 @@
 			
 		</div>
 		<div class="formu">
+			<?php include_once 'includes/header.php' ?>
+				<nav class="menu2_nav">
+					<ul class="menu2_ul">
+						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
+						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
+						<li class="menu2-item"><a href="historial.php">Historial</a></li>
+						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
+						<li class="menu2-item"><a href=""class="active">Politicas</a></li>
+					</ul>
+				</nav>
+				<div class="contenidos">
+					<br>
+					<br>
+					<h2>LEA ATENTAMENTE LAS POLITICAS DE USO DE ESTE SITIO
 
-			<div class="politicas-1">
-				<h1>LEA ATENTAMENTE LOS TERMINOS Y CONDICIONES DE ESTE SITIO</h1>
-				<form action="" method="POST">
-					
-					<div class="politicas">
+</h2>
+					<br>
+					<div class="mensaje">
 						
-						<textarea name="politicas" id="" cols="40" rows="10" disabled>Los servicios que Dracoin proporciona al usuario están sujetos a los siguientes términos de uso. Dracoin se reserva el derecho a actualizar los términos de uso en cualquier momento y sin previo aviso al usuario. Ingresando a su usuario, puede revisar la versión más actual de los términos de uso.
+						<textarea name="politicas" id="" cols="40" rows="10" style="
+    width: 40%;height:450px;
+" disabled>Los servicios que Dracoin proporciona al usuario están sujetos a los siguientes términos de uso. Dracoin se reserva el derecho a actualizar los términos de uso en cualquier momento y sin previo aviso al usuario. Ingresando a su usuario, puede revisar la versión más actual de los términos de uso.
 
 1. El derecho a utilizar Dracoin, es personal del usuario y no puede transferirse a ninguna otra persona o entidad. El usuario es responsable de todo uso de la cuenta del mismo y de asegurarse que todo uso de la cuenta del usuario cumple íntegramente con las disposiciones de este acuerdo. El usuario será responsable de proteger la confidencialidad de las contraseñas.
 2. Dracoin tendrá derecho en cualquier momento a cambiar o suspender cualquier aspecto o característica de la página. 
@@ -35,20 +57,30 @@
 
 						
 						</textarea>
+						
 					</div>
 					
-					<div class="good">
-						<a href="registro.php" >Aceptar</a>
-					</div>
-					<div class="bad">
-						<a href="index.php" >No Acepto</a>
-					</div>
 				</form>
-				
-			</div>
-			
-		</div>
-		
-	</div>	
+				</div>
+			</section>
+		</div>	
+	</div>
+	<script src="../jquery/jquery-1.11.1.min.js">
+	</script>
+	<script src="js/js.js">
+	</script>
+	
+	<script src="js/incluNotifi.js">
+	</script>
+
+	<div id="busque" class="busque"></div>	
 </body>
 </html>
+<?php
+echo $_SESSION['nick'].$_SESSION['rol'];
+}
+else
+{
+	header('location:../index.php');
+}
+?>

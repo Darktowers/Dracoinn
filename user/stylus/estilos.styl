@@ -26,11 +26,30 @@ morado = #4d07cd
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing antialiased
 	-moz-osx-font-smoothing grayscale
+h1 
+h2
+	color morado	
 
 .contenidos
 	span
 		position: absolute;
 		margin: 13px 0 0 10px;
+textarea
+	display inline-block
+	border-radius 3px
+	padding 0.6em 1.5em
+	margin 1em 1.5em 1em 1.5em
+	text-align justify
+	font-size 1.1em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd
+	resize: none;
+	width 400px		
 .contenedornotificaciones
 	display none
 	background: none repeat scroll 0% 0% #344b54;
@@ -247,6 +266,7 @@ figure
 	right 0
 	width 204px
 	top -2.6em
+	
 	.menu_ul
 		list-style: none
 		margin: 0
@@ -269,6 +289,7 @@ figure
 	position absolute
 	left 0
 	width 204px
+	z-index: 6;
 	
 	.menu2_ul
 		list-style: none
@@ -409,7 +430,7 @@ figure
 .cartas
 	display block
 	width 100%
-	padding-top 12em
+	
 	text-align center	
 	.carta-item
 		display inline-block

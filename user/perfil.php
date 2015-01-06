@@ -12,6 +12,8 @@ include_once '../includes/conexion.php';
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<title ><?php echo $usuario ?></title>
@@ -75,7 +77,7 @@ include_once '../includes/conexion.php';
 				<div class="contenidos">
 					<br>
 					<br>
-					<h2>Perfil</h2>
+					<h1>Perfil</h1>
 					<br>
 					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
 					<div class="imagen-actual" style="width: 150px; position: relative; display: inline-block;">

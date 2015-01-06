@@ -27,30 +27,40 @@ include_once '../includes/conexion.php';
 			<?php include_once 'includes/header.php' ?>
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
-						<li class="menu2-item"><a href="" class="active">Inicio</a></li>
+						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
 						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
 						<li class="menu2-item"><a href="historial.php">Historial</a></li>
-						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
+						<li class="menu2-item"><a href=""class="active">Soporte</a></li>
 						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
 					</ul>
 				</nav>
-				<div class="contenido-cartas">
-					<div id="buscador">
-						<form action="" class="searching">
-							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
-							<div class="searchicon">
-								<span class="icon-search search-icon"></span>
-							</div>
-						</form>
+				<div class="contenidos">
+					<br>
+					<br>
+					<h2>INDIQUENOS SUS INQUIETUDES<br>
+RECLAMOS O SUGERENCIAS AQUÍ!
+</h2>
+					<br>
+					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
+						
+					
+					<div class="usuario">
+						<span class="icon-envelope"></span>
+						<input type="text" name="usuario" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off" >
 					</div>
-					
-					
-					<div class="contenedorusuario">
-						<div class='cartas right'>
-							
-						</div>
+					<div class="asunto">
+						<span class="icon-location"></span>
+						<input type="text" name="asunto" placeholder="Asunto" required autocomplete="off" style="width: 240px;">
 					</div>
-					
+					<div class="mensaje">
+						<textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+						
+					</div>
+					<div class="input">
+						
+							<input type="submit" value="Enviar" action="">
+					</div>
+				</form>
 				</div>
 			</section>
 		</div>	
@@ -59,8 +69,7 @@ include_once '../includes/conexion.php';
 	</script>
 	<script src="js/js.js">
 	</script>
-	<script src="js/ajaxBusqueda.js">
-	</script>
+	
 	<script src="js/incluNotifi.js">
 	</script>
 

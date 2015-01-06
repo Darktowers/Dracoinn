@@ -17,26 +17,7 @@ include_once '../includes/conexion.php';
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<title ><?= $usuario ?></title>
-	
-	
-	<style>
-	
-div.highlight {
-    display: none;
-	position: absolute;
-	background: rgba(76, 69, 69, 0.86);
-	z-index: 103;
-	width: 150px;
-	height: 200px;
-	top: 0;
-	right: 0;
-	z-index: 0;
-}
-div.carta-item input:checked ~ div.highlight {
-	display: inline-block;
-    background-color: rgba(59, 4, 118, 0.52);
-}
-</style>
+
 </head>
 <body>
 	<div class="back">
@@ -48,8 +29,8 @@ div.carta-item input:checked ~ div.highlight {
 				<nav class="menu2_nav">
 					<ul class="menu2_ul">
 						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
-						<li class="menu2-item"><a href="" class="active">Inventario</a></li>
-						<li class="menu2-item"><a href="historial.php">Historial</a></li>
+						<li class="menu2-item"><a href="inventario.php" >Inventario</a></li>
+						<li class="menu2-item"><a href="" class="active">Historial</a></li>
 						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
 						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
 					</ul>
@@ -64,7 +45,7 @@ div.carta-item input:checked ~ div.highlight {
     position: absolute;
     display: block;
     width: 100%;
-">Tarjetas Disponibles</h1>
+">Tarjetas Asignadas</h1>
 						<div class='cartas right'style="
     padding-top: 10em;
 ">
@@ -77,7 +58,7 @@ div.carta-item input:checked ~ div.highlight {
 								$tarjetas= array("10","11","12","13","14");
 								$tarjetasvalidas= array("0","0","0","0","0");
 								$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0'");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='1'");
 													
 														  if($row1=mysql_fetch_array($resul1))
 														  {
@@ -120,24 +101,16 @@ div.carta-item input:checked ~ div.highlight {
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]'");
 																													  	$cantidad=mysql_num_rows($resul1);
 																													  	$idAsig=mysql_fetch_array($resul1);
-																														$mod=$cantidad%2;
-																														if($mod==0)
-																															{
-																																$cantidad=$cantidad/2; 
-																															}
-																															elseif($mod==1)
-																																{
-																																	$cantidad=($cantidad+1)/2;
-																																}
+																														
 													
 																													  		$imgTarjeta=stripslashes($row2["urlImgTarjeta"]);
 																													  		
 																													  		echo"
 																																	<div class='carta-item' id='active'>
-																																	<input type='radio' id='".$mod."' alt='".$idAsig['idAsignacion']."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+																																	<input type='radio'  alt='".$idAsig['idAsignacion']."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
 																																		<figure id='mod' >
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick valueCarta' width='150' height='200'>
 																																			
@@ -223,8 +196,7 @@ div.carta-item input:checked ~ div.highlight {
 	</script>
 	<script src="js/incluNotifi.js">
 	</script>
-	<script src="js/asignaCartas.js">
-	</script>
+	
 	
 
 	<div id="busque" class="busque"></div>	
