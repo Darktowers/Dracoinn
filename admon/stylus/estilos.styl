@@ -1,0 +1,459 @@
+@import "../stylus/normalize.styl"
+@import "nib"
+gris_oscuro = #333333
+gris_claro = #818181
+morado = #4d07cd
+@font-face 
+	font-family 'icomoon'
+	src url('../fonts/icomoon.eot?sqehjs')
+	src url('../fonts/icomoon.eot?#iefixsqehjs') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?sqehjs') format('woff'),
+		url('../fonts/icomoon.ttf?sqehjs') format('truetype'),
+		url('../fonts/icomoon.svg?sqehjs#icomoon') format('svg')
+	font-weight normal
+	font-style normal
+
+
+[class^="icon-"], [class*=" icon-"] 
+	font-family 'icomoon'
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none
+	line-height 1
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+h1 
+h2
+	color morado	
+
+.contenidos
+	span
+		position: absolute;
+		margin: 13px 0 0 10px;
+textarea
+	display inline-block
+	border-radius 3px
+	padding 0.6em 1.5em
+	margin 1em 1.5em 1em 1.5em
+	text-align justify
+	font-size 1.1em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd
+	resize: none;
+	width 400px		
+.contenedornotificaciones
+	display none
+	background: none repeat scroll 0% 0% #344b54;
+	position: absolute;
+	right: 148px;
+	width: 215px;
+	top: -48px;
+	z-index: 2;
+	max-height: 168px;
+	overflow-y: scroll;
+	nav
+		
+		margin: 0
+		padding: 0
+		
+		ul
+			display: block
+			margin:0
+			list-style: none
+			padding 0
+			a 
+				color white
+				display block
+				padding 0.5em
+				text-decoration: none
+				transition:0.3s	
+
+				&:hover
+					background morado		
+input 
+	display inline-block
+	border-radius 3px
+	padding 0.6em 1.5em
+	margin-bottom 1em
+	text-align center
+	font-size 1.1em
+	margin-bottom 1em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd 
+	
+	
+	&:focus
+		-webkit-box-shadow 0 0 14px #1389ed
+		box-shadow 0 0 14px #783B8C
+		background #fff
+		border 1px solid #783B8C
+		color #783B8C
+		
+input[type=submit], button
+				
+	border 0
+	background none
+	border 2px solid #4d07cd
+	padding 25px 43px
+	width auto
+	line-height 0px
+	transition all 0.2s ease-in-out 0s
+	color #4d07cd
+	font-weight bold
+	
+
+	&:hover
+		background #4d07cd
+		border 2px solid transparent
+		font-weight bold
+		color #fff		
+
+.inactive
+	display inline-block;
+	position absolute
+	background rgba(76, 69, 69, 0.86)
+	z-index 103
+	width 150px
+	height 200px
+	top: 0;
+	right: 0;
+
+.icon-plus:before 
+	content "\e600"
+
+.icon-envelope:before 
+	content "\e60a"
+
+.icon-location:before 
+	content "\e601"
+
+.icon-user:before 
+	content "\e602"
+
+.icon-search:before 
+	content "\e603"
+
+.icon-key:before 
+	content "\e60b"
+
+.icon-lock:before 
+	content "\e604"
+
+.icon-confi:before 
+	content "\e606"
+
+.icon-eye:before 
+	content "\e607"
+
+.icon-star:before 
+	content "\e609"
+
+.icon-check:before 
+	content "\e605"
+
+.icon-close:before 
+	content "\e608"
+.busque
+	list-style none
+	width: 59%;
+	border: 1px solid;
+	margin: 0 auto;
+	text-align: left;
+.resultados
+	background white
+		
+body
+	background black	
+header
+	position relative
+	background white
+.contador
+	padding .5em .8em .5em .8em
+	position relative
+	top 11px
+.wrap
+	width 80%
+.round
+	border-radius 50%
+	overflow hidden
+	border 1px solid #4d07cd
+.left
+	float left
+.right
+	float right	
+.relative
+	position relative	
+.center-block
+	margin 0 auto
+.center-text
+	text-align center			
+.contenedor
+	position relative
+	padding 0.3em 0
+	overflow hidden
+figure
+	margin 0
+	width 40px
+	img
+		vertical-align top
+.isotipo 
+	width 100px
+.logo
+	img
+		width 100%
+		height auto
+.back
+	height 100%
+	position absolute
+	width 100%
+	.fondo
+		-moz-filter blur(15px) 
+		-ms-filter blur(15px) 
+		-o-filter blur(15px) 
+		-webkit-filter blur(15px)
+		background-image url("../../img/11.jpg")
+		background-position center center
+		background-repeat no-repeat
+		background-size cover
+		filter blur(3px)
+		height 100%
+		
+		
+	.formu
+		background rgba(0,0,0,0.5)
+		height 100%
+		position absolute
+		top 0
+		width 100%
+		text-align center
+.menu_nav
+	display none
+.addboton
+	border-radius 1px 10px 1px 1px
+	color white
+	background #344B54
+	font-size 2em
+	margin 0 0 0 0.5em
+	transition all 0.2s ease-in-out 0s
+	cursor pointer
+	padding-bottom: 0.5em;
+.addboton1
+	border-radius 10px 1px 1px 1px
+	color white
+	background #344B54
+	font-size 2em
+	margin 0 0 0 0.5em
+	transition all 0.2s ease-in-out 0s
+	cursor pointer
+	padding-bottom: 0.5em;
+		 					
+.menu_nav
+	background #344B54
+	position absolute
+	right 0
+	width 204px
+	top -2.6em
+	
+	.menu_ul
+		list-style: none
+		margin: 0
+		padding: 0
+		
+		.item
+			display: block
+			margin:0
+			a 
+				color white
+				display block
+				padding 0.5em
+				text-decoration: none
+				transition:0.3s	
+
+				&:hover
+					background morado
+.menu2_nav
+	background #344B54
+	position absolute
+	left 0
+	width 204px
+	z-index: 6;
+	
+	.menu2_ul
+		list-style: none
+		margin: 0
+		padding: 0
+		
+		
+		.menu2-item
+			display: block
+			margin:0
+			position: relative;
+			.active
+				background morado
+				&:after
+					content ""
+					display:block;
+					right -36px
+					
+					top 0
+					border-color:transparent transparent transparent morado;
+					border-style:solid;
+					border-width:18.9px;
+					position absolute
+					 
+			a
+				color white
+				display block
+				padding 0.5em
+				text-decoration: none
+				transition:0.3s	
+				&:hover
+					background morado
+								
+
+
+
+
+	
+
+		
+.username
+	color #818181
+	position relative
+	top 9px
+	margin-left .5em
+.confi-icon
+	color gris_claro
+	font-size 2em
+	margin 0 0 0 0.5em
+	transition all 0.2s ease-in-out 0s
+	cursor pointer
+.scale
+	transform:scale(1.1,1.1);	
+		
+		
+	  
+.eye-icon
+	color gris_claro
+	font-size 1.5em
+	margin 0 0.5em 0 0
+	padding 0.3em 0 0 0
+	 	
+.user 
+	position absolute
+	right 0
+	bottom 0
+	margin 0 0 1.3em 0.5em
+	
+	
+.contenido
+	height auto
+	background white
+	margin-top 1em
+
+.search	
+	display inline-block
+	border-radius 3px 0 0 3px
+	padding 0.6em 1.5em
+	margin 1em 0 0 0
+	text-align center
+	font-size 1.5em
+	border 0
+	border 1px solid #4d07cd
+	font-weight normal
+	background rgba(204, 204, 204, 0.85)
+	transition all 0.8s
+	color #4d07cd
+	width 50%
+	&:focus
+		box-shadow 0 0 7px #4d07cd
+		background #fff
+		border 1px solid #4d07cd
+		color #783B8C
+	
+.contenido-cartas
+	display inline-block
+	width 100%
+	text-align center
+	height 750px
+	
+.searching
+	display inline-block
+	width 50%
+	.searchicon
+		width 58px
+		height 58px
+		display inline-block
+		margin 0px
+		padding 0px
+		position absolute
+		text-align center
+		top 24px
+		border 1px solid #4d07cd
+		border-radius 0 3px 3px 0
+		background none repeat scroll 0% 0% rgba(77, 7, 205, 0.77)
+		cursor pointer
+		transition all 0.8s
+		&:hover
+			background none repeat scroll 0% 0% rgba(77, 7, 205, 1)	
+			
+		
+	.search-icon
+		font-size 1.5em
+		line-height 2.5
+		display inline-block
+		color white
+.contenedorusuario
+	display none
+	.avatar
+		display block
+		
+		figure
+			margin 0
+			width 150px
+			display: inline-block;
+			img
+				vertical-align top
+.cartas
+	display block
+	width 100%
+	
+	text-align center	
+	.carta-item
+		display inline-block
+		width 150px
+		margin-bottom 1em
+		position relative
+		
+				
+	.comprar
+		display block
+		width 60px
+		height 60px
+		background white
+		margin 0 auto
+		border 4px solid morado
+		transition all 0.8s
+		&:hover
+			background green
+			cursor pointer
+			border 4px solid green
+		img
+			width 30px
+			vertical-align top
+			position relative
+			top 28%		
+								 		
