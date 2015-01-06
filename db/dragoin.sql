@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-12-2014 a las 04:32:12
+-- Tiempo de generación: 06-01-2015 a las 02:49:33
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -27,19 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `asignaciones` (
-  `idAsignacion` int(15) NOT NULL DEFAULT '0',
+`idAsignacion` int(15) NOT NULL,
   `fkUsuAsignador` varchar(50) DEFAULT NULL,
   `fkUsuPropietario` varchar(50) DEFAULT NULL,
-  `fkTarjeta` int(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `fkTarjeta` int(15) DEFAULT NULL,
+  `Estado` int(2) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `asignaciones`
 --
 
-INSERT INTO `asignaciones` (`idAsignacion`, `fkUsuAsignador`, `fkUsuPropietario`, `fkTarjeta`) VALUES
-(1, 'Usuario', 'Usuario2', 10),
-(2, 'WillDeveloper', 'Usuario2', 13);
+INSERT INTO `asignaciones` (`idAsignacion`, `fkUsuAsignador`, `fkUsuPropietario`, `fkTarjeta`, `Estado`) VALUES
+(1, 'Andres', 'Usuario', 10, 0),
+(3, 'Andres', 'Usuario', 10, 0),
+(4, 'Andres', 'Usuario', 10, 0),
+(5, 'Andres', 'Usuario', 10, 0),
+(8, 'Andres', 'Usuario', 13, 0);
 
 -- --------------------------------------------------------
 
@@ -75,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
   `fechaNotificacion` date DEFAULT NULL,
   `fechaVencimientoNotificacion` int(5) DEFAULT NULL,
   `fkEstadoNotificacion` int(15) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `notificaciones`
@@ -84,7 +88,10 @@ CREATE TABLE IF NOT EXISTS `notificaciones` (
 INSERT INTO `notificaciones` (`idNotificacion`, `fkUsuarioDestinatario`, `fkUsuarioRemitente`, `fkIdTarjeta`, `fechaNotificacion`, `fechaVencimientoNotificacion`, `fkEstadoNotificacion`) VALUES
 (1, 'WillDeveloper', 'Usuario2', 10, '2014-12-31', 364, 111),
 (2, 'WillDeveloper', 'Usuario2', 13, '2014-12-31', 364, 111),
-(3, 'WillDeveloper', 'Usuario2', 10, '2014-12-31', 364, 111);
+(3, 'WillDeveloper', 'Usuario2', 10, '2014-12-31', 364, 111),
+(4, 'WillDeveloper', 'Usuario2', 13, '2015-01-04', 3, 111),
+(5, 'WillDeveloper', 'Usuario', 10, '2015-01-04', 3, 222),
+(6, 'WillDeveloper', 'Usuario', 10, '2015-01-04', 3, 111);
 
 -- --------------------------------------------------------
 
@@ -133,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`nickName`, `correo`, `passWord`, `telefono`, `estadoUsuario`, `rolUsuario`, `urlFotoUsuario`) VALUES
 ('Andres', 'caarrieta40@misena.edu.co', 'metallica', 8143170, 'Activo', 'Usuario', 'img_user/default.png'),
 ('Usuario', 'cristian-rock1@hotmail.com', 'e170f80139aac716ebca4320121de416231b4109', 8143170, 'Activo', 'Usuario', 'img_user/default.png'),
-('Usuario2', 'usuario2@usuario.com', 'metallica', 917777, 'activo', 'activo', 'img_user/default.png'),
+('Usuario2', 'usuario2@usuario.com', 'de5497386ea07babb1afcaeea8f49d340f6d1a5b', 917777, 'activo', 'activo', 'img_user/default.png'),
 ('WillDeveloper', 'willtf.wb@gmail.com', 'de5497386ea07babb1afcaeea8f49d340f6d1a5b', 1234, 'Activo', 'Usuario', 'img_user/default.png');
 
 --
@@ -175,10 +182,15 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `asignaciones`
+--
+ALTER TABLE `asignaciones`
+MODIFY `idAsignacion` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT de la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `idNotificacion` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- Restricciones para tablas volcadas
 --
