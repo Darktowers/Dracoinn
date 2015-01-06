@@ -198,7 +198,7 @@ div.carta-item input:checked ~ div.highlight {
 									
 								</figure>
 								<form action="">
-								<input type="text" name="carta2" style="width: 93px;">
+								<input type="text" id="carta2" name="carta2" style="width: 93px;">
 								<button id="enviar2">Asignar</button>
 								<div class='highlight'></div>
 								</form>
@@ -221,6 +221,7 @@ div.carta-item input:checked ~ div.highlight {
 	</script>
 	<script src="js/asignaCartas.js">
 	</script>
+	
 
 	<div id="busque" class="busque"></div>	
 </body>

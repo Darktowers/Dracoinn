@@ -5,6 +5,15 @@ if($_POST)
 	$usuarioAsig=$_POST['usuarioAsig'];
 	$usuarioP=$_POST['usuarioP'];
 	$idAsig=$_POST['idAsig'];
-	echo $tarjeta.$usuarioAsig.$usuarioP.$idAsig;
+	include_once '../../includes/conexion.php';
+
+	$restaAsigna=mysql_query("update asignaciones set Estado=1 where idAsignacion='".$idAsig."'");
+	if($restaAsigna)
+		{
+		for ($i=0; $i < 2 ; $i++) { 
+			$nuevaAsig=mysql_query("insert into asignaciones values('','".$usuarioAsig."','".$usuarioP."','".$tarjeta."','0')");
+			if($nuevaAsig){echo "true";}else{echo "false";}
+		}
+	}
 }
 ?>
