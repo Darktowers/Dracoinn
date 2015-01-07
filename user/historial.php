@@ -47,7 +47,7 @@ include_once '../includes/conexion.php';
     width: 100%;
 ">Tarjetas Asignadas</h1>
 						<div class='cartas right'style="
-    padding-top: 10em;
+    padding-top: 12em;
 ">
 
 							<?php
@@ -154,7 +154,7 @@ include_once '../includes/conexion.php';
 										 					}
 							?>
 						</div>
-						<div class="cartas" id="contenedorAsigna"style="top: 244px;position: absolute; display:none;padding-top: 10em;" >
+						<div class="cartas" id="contenedorAsigna"style="top: 244px;position: absolute; display:none;padding-top: 12em;" >
 							<div class='carta-item' id='cartas1'>
 							<input type='radio' class='' value='".$tarjetasvalidas[$i]."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
 								<figure>
