@@ -28,7 +28,7 @@ $(function (){
 						url:"php/asignar.php",
 						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
 						success:function(data){
-							alert(data);
+							alert("data");
 						}
 					});
 				}
@@ -48,7 +48,7 @@ $(function (){
 						url:"php/asignar.php",
 						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
 						success:function(data){
-							alert(data);
+							alert("data");
 						}
 					});
 				}

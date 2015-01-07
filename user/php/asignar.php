@@ -1,6 +1,7 @@
 <?php 
 if($_POST)
 {
+	echo("mamada");
 	$tarjeta=$_POST['tarjeta'];
 	$usuarioAsig=$_POST['usuarioAsig'];
 	$usuarioP=$_POST['usuarioP'];
@@ -9,11 +10,19 @@ if($_POST)
 
 	$restaAsigna=mysql_query("update asignaciones set Estado=1 where idAsignacion='".$idAsig."'");
 	if($restaAsigna)
+		echo "hola";
 		{
 		for ($i=0; $i < 2 ; $i++) { 
 			$nuevaAsig=mysql_query("insert into asignaciones values('','".$usuarioAsig."','".$usuarioP."','".$tarjeta."','0')");
-			if($nuevaAsig){echo "true";}else{echo "false";}
+
 		}
+		if($nuevaAsig)
+				{
+					echo "true";
+				}else
+				{
+					echo "false";
+				}
 	}
 }
 ?>
