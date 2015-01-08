@@ -58,7 +58,7 @@ include_once '../includes/conexion.php';
 								$tarjetas= array("10","11","12","13","14");
 								$tarjetasvalidas= array("0","0","0","0","0");
 								$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$usuario' ");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$usuario' collate utf8_bin ");
 													
 														  if($row1=mysql_fetch_array($resul1))
 														  {
@@ -101,7 +101,7 @@ include_once '../includes/conexion.php';
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  		$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$usuario'  and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  		$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$usuario'  and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
 																													  	$cantidad=mysql_num_rows($resul1);
 																													  	$idAsig=mysql_fetch_array($resul1);
 																														

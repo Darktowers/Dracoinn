@@ -7,7 +7,7 @@ $(function (){
 		if(valorCarta){
 			$("#contenedorAsigna").css("display","block");
 			$(".imagenUrl").attr("src",""+urlCarta+"");
-			var idAsig= $(this).attr("alt");
+			 idAsig= $(this).attr("alt");
 			var mo= $(this).attr("id");
 			 tarjeta= $(this).attr("rel");
 			//alert(idAsig);
@@ -32,21 +32,21 @@ $(function (){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
-					alert(tarjeta);
+				
 				
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
 						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP } ,
 						success:function(data){
-							
-							document.location.reload();
+							alert(data);
+							location.reload();
 						}
 					});
 				}
 				else{
 					alert("Ha cancelado la Asignacion.")
-					document.location.reload();	
+					location.reload();	
 					}
 
 				}else{
@@ -68,21 +68,21 @@ $(function (){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
-					alert(tarjeta);
+					
 				
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
 						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP } ,
 						success:function(data){
-							
-							document.location.reload();
+							alert(data);
+							location.reload();
 						}
 					});
 				}
 				else{
 					alert("Ha cancelado la Asignacion.")
-					document.location.reload();	
+					location.reload();	
 					}
 
 				}else{

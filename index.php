@@ -58,7 +58,7 @@ if($_POST)
 	$user=filter_var($userSinFiltro,FILTER_SANITIZE_MAGIC_QUOTES);
 	$password=sha1($_POST['password']);
 
-	$consulta=mysql_query("select nickName,passWord,rolUsuario from usuario where nickName='".$user."' and passWord='".$password."'");
+	$consulta=mysql_query("select nickName,passWord,rolUsuario from usuario where nickName=_utf8 '".$user."' and passWord=_utf8 '".$password."' collate utf8_bin");
 	$rows=mysql_num_rows($consulta);
 	$fetch=mysql_fetch_array($consulta);
 	if($rows==1 && $fetch['rolUsuario']=="Usuario")

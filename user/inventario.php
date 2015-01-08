@@ -188,11 +188,11 @@ div.carta-item input:checked ~ div.highlight {
 									<img src=''  alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick imagenUrl' width='150' height='200'>
 									
 								</figure>
-								<form action="">
+								
 								<input type="text" id="carta1" name="carta1" style="width: 93px;">
-								<button id="enviar1">Asignar</button>
+								<input type="submit" id="enviar1">
 								<div class='highlight'></div>
-								</form>
+								
 	
 							</div>
 							<div class='carta-item' id='cartas2'>
@@ -201,11 +201,11 @@ div.carta-item input:checked ~ div.highlight {
 									<img src='' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick imagenUrl' width='150' height='200'>
 									
 								</figure>
-								<form action="">
+								
 								<input type="text" id="carta2" name="carta2" style="width: 93px;">
-								<button id="enviar2">Asignar</button>
+								<input type="submit" id="enviar2">
 								<div class='highlight'></div>
-								</form>
+								
 							
 							</div>
 						</div>

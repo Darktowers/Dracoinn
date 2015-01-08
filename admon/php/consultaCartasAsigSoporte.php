@@ -31,7 +31,7 @@ session_start();
 		if ($letra != "")
 		{
 			include_once '../../includes/conexion.php';
-		$resul=mysql_query("SELECT * FROM usuario WHERE nickName='$letra'");
+		$resul=mysql_query("SELECT * FROM usuario WHERE nickName=_utf8'$letra' collate utf8_bin");
 							  if($row=mysql_fetch_array($resul))
 							  {
 										  do{
@@ -55,7 +55,7 @@ session_start();
 
 													</div>";
 													$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra'AND Estado='0'");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario=_utf8'$letra'AND Estado='0' collate utf8_bin");
 														  if($row1=mysql_fetch_array($resul1))
 														  {
 																	  do{
@@ -97,10 +97,10 @@ session_start();
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
 																													  	$cantidad=mysql_num_rows($resul1);
-																													  	$resul3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario='$letra' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]'");
-																													  	$resu3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resul3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario=_utf8'$letra' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
+																													  	$resu3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario=_utf8'$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
 																													  	$cantidad2=mysql_num_rows($resul3);
 																													  	$cantidad22=mysql_num_rows($resu3);
 																													  	$totalcompradas =$cantidad2+$cantidad22;
@@ -133,9 +133,9 @@ session_start();
 																										  {
 																													  do{
 																													  	$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
-																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]'");
+																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
 																													  	$cantidad=mysql_num_rows($resul5);
-																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]'");
+																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario=_utf8'$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
 																													  	$cantidad2=mysql_num_rows($resul4);
 																													  		echo"
 																																	<div class='carta-item' id='inactive'>
@@ -168,9 +168,9 @@ session_start();
 																										  {
 																													  do{
 																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
-																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]'");
+																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
 																													  	$cantidad=mysql_num_rows($resul5);
-																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]'");
+																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario=_utf8'$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
 																													  	$cantidad2=mysql_num_rows($resul4);
 																													  		echo"
 																																	<div class='carta-item' id='inactive'>

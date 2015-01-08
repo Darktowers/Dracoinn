@@ -6,7 +6,7 @@
 		if ($letra != " ")
 		{
 			include_once '../../includes/conexion.php';
-			$consulta="select nickName from usuario where nickName like '".$letra."%' limit 5";
+			$consulta="select * from usuario where rolUsuario='Usuario' and nickName like '".$letra."%' limit 5";
 			$query=mysql_query($consulta,$conexion);
 			
 				for($i=0;$i=$resultado=mysql_fetch_array($query);$i++)

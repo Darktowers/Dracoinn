@@ -31,7 +31,7 @@ session_start();
 		if ($letra != "")
 		{
 			include_once '../../includes/conexion.php';
-		$resul=mysql_query("SELECT * FROM usuario WHERE nickName='$letra'");
+		$resul=mysql_query("SELECT * FROM usuario WHERE nickName=_utf8'$letra' collate utf8_bin");
 							  if($row=mysql_fetch_array($resul))
 							  {
 										  do{
@@ -54,7 +54,7 @@ session_start();
 
 													</div>";
 													$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra'");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario=_utf8'$letra' collate utf8_bin");
 														  if($row1=mysql_fetch_array($resul1))
 														  {
 																	  do{

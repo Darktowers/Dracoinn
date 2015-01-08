@@ -18,7 +18,7 @@ if($tipo=='image/jpeg' || $tipo=='image/png' || $tipo=='image/jpg'){
 		$guardado=move_uploaded_file($_FILES['foto']['tmp_name'],$destinoReal.$nombreArchivo);
 		include_once '../../includes/conexion.php';
 		
-				$consulta="update usuario set correo='".$email."', telefono='".$telefono."', urlFotoUsuario='../".$destino.$nombreArchivo."' where nickName='".$usuario."'";
+				$consulta="update usuario set correo='".$email."', telefono='".$telefono."', urlFotoUsuario='../".$destino.$nombreArchivo."' where nickName=_utf8'".$usuario."' collate utf8_bin";
 				$query=mysql_query($consulta,$conexion);
 				if($query){
 					header("location:../perfil.php");
@@ -43,7 +43,7 @@ else{?>
 }
 else{
 include_once '../../includes/conexion.php';
-			$consulta="update usuario set correo='".$email."', telefono='".$telefono."' where nickName='".$usuario."'";
+			$consulta="update usuario set correo='".$email."', telefono='".$telefono."' where nickName=_utf8'".$usuario."' collate utf8_bin";
 				$query=mysql_query($consulta,$conexion);
 				if($query){
 					header("location:../perfil.php");

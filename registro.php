@@ -17,7 +17,7 @@
 		<div class="formu">
 
 			<div class="registro"style="top: 10%;">
-				<div class="message" style="bottom:0;">
+				<div class="message" style="top:0;">
 					<div class="cerrar icon-close"></div>
 					<h3 id="mensaje"></h3>
 				</div>
@@ -75,7 +75,7 @@ if($_POST){
 		if($confirmacionNickName==0){
 		   if($confirmacionCorreo==0){
 		   	$codPassword=sha1($password);
-				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','img_user/default.png')");
+				$consulta=mysql_query("insert into usuario values ('".$user."','".$email."','".$codPassword."','".$telefono."','Activo','Usuario','../img_user/default.png')");
 				if($consulta){
 					header('location:index.php');
 				}	

@@ -1,29 +1,42 @@
 <?php 
 if($_POST)
 {
-	echo("mamada");
+	
 	$tarjeta=$_POST['tarjeta'];
 	$usuarioAsig=$_POST['usuarioAsig'];
 	$usuarioP=$_POST['usuarioP'];
 	$idAsig=$_POST['idAsig'];
 	include_once '../../includes/conexion.php';
+	$cont=0;
+	$resul=mysql_query("SELECT * FROM `usuario` WHERE `nickName`=_utf8 '$usuarioP' collate utf8_bin");
+							  if($row=mysql_fetch_array($resul))
+							  {
+										  do{
+										
+												$cont++;
+										
+										}while($row=mysql_fetch_array($resul));
+							  }
 
-	$restaAsigna=mysql_query("update asignaciones set Estado=1 where idAsignacion='".$idAsig."'");
-	if($restaAsigna)
-		echo "hola";
+	if($cont==1){
+      
+		$restaAsigna=mysql_query("update asignaciones set Estado=1 where idAsignacion='".$idAsig."'");
+		if($restaAsigna)
 		{
-		for ($i=0; $i < 2 ; $i++) { 
-			$nuevaAsig=mysql_query("insert into asignaciones values('','".$usuarioAsig."','".$usuarioP."','".$tarjeta."','0')");
 
+		
+			for ($i=0; $i < 2 ; $i++) { 
+				$nuevaAsig=mysql_query("insert into asignaciones values('','".$usuarioAsig."','".$usuarioP."','".$tarjeta."','0')");
+
+			}
+		echo"Asignacion realizada Satisfactoriamente";
+			
 		}
-	
-		if($nuevaAsig)
-				{
-					echo "true";
-				}else
-				{
-					echo "false";
-				}
+
+	}else{
+		echo"Usuario no existe";
+
 	}
+	
 }
 ?>
