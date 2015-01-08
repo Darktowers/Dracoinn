@@ -10,9 +10,8 @@ $usuario=$_POST['usuario'];
 $nombreArchivo=$dia.$mes.$anio.$usuario.$_FILES['foto']['name'];
 $telefono=$_POST['telefono'];
 
-if($tipo) {
-
-if($tipo=='tipo/jpeg' || $tipo=='image/png' || $tipo=='image/jpg'){
+if(!empty($tipo)) {
+if($tipo=='image/jpeg' || $tipo=='image/png' || $tipo=='image/jpg'){
 	if($tamaño>=2000){
 		$destinoReal="../../img_user/";
 		$destino="img_user/";
