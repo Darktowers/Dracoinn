@@ -17,10 +17,16 @@ $(function (){
 			$("#cartas1").css("display","inline-block");
 			}
 
-			$("#enviar1").click(function(){
+			
+
+		}		
+				
+	});
+
+	$("#enviar1").click(function(){
 				var usuario=$("#usuarioD").attr("value");
 				
-				var usuarioP=$("#carta2").val();
+				var usuarioP=$("#carta1").val();
 				
 				if(usuarioP!="" && usuarioP != usuario){
 					
@@ -52,12 +58,14 @@ $(function (){
 
 			$("#enviar2").click(function(){
 
+
 				var usuario=$("#usuarioD").attr("value");
 				
 				var usuarioP=$("#carta2").val();
 				
+
 				if(usuarioP!="" && usuarioP != usuario){
-					
+					alert(usuarioP+usuario);
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
 					alert(tarjeta);
@@ -83,8 +91,4 @@ $(function (){
 					}
 
 			});
-
-		}		
-				
-	});
 }); 
