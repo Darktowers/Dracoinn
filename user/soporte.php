@@ -46,7 +46,7 @@ RECLAMOS O SUGERENCIAS AQUÍ!
 					
 					<div class="usuario">
 						<span class="icon-envelope"></span>
-						<input type="text" name="usuario" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off" >
+						<input type="text" name="usuario" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off"  disabled>
 					</div>
 					<div class="asunto">
 						<span class="icon-location"></span>
