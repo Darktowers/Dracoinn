@@ -9,6 +9,7 @@ $(function (){
 			$(".imagenUrl").attr("src",""+urlCarta+"");
 			var idAsig= $(this).attr("alt");
 			var mo= $(this).attr("id");
+			var tarjeta= $(this).attr("rel");
 			//alert(idAsig);
 			if(mo==1){
 				$("#cartas1").css("display","none");
@@ -18,41 +19,67 @@ $(function (){
 
 			$("#enviar1").click(function(){
 				var usuario=$("#usuarioD").attr("value");
-				var tarjeta=$(".valueCarta").attr("value");
+				
 				var usuarioP=$("#carta1").val();
-
+				
 				if(usuarioP!=""){
+					
+				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
+				if(confirmar){
+					alert(tarjeta);
 				
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP} ,
 						success:function(data){
-							alert(data);
+							
+							document.location.reload();
 						}
 					});
 				}
-				else{alert("No ha seleccionado ningun usuario para asignar la tarjeta.");}
+				else{
+					alert("Ha cancelado la Asignacion.")
+					document.location.reload();	
+					}
+
+				}else{
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+				
+					}
 			});
 
 			$("#enviar2").click(function(){
 				
 				var usuario=$("#usuarioD").attr("value");
-				var tarjeta=$(".valueCarta").attr("value");
+				
 				var usuarioP=$("#carta2").val();
-
+				
 				if(usuarioP!=""){
+					
+				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
+				if(confirmar){
+					alert(tarjeta);
 				
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP} ,
 						success:function(data){
-							alert(data);
+							
+							document.location.reload();
 						}
 					});
 				}
-				else{alert("No ha seleccionado ningun usuario para asignar la tarjeta.");}
+				else{
+					alert("Ha cancelado la Asignacion.")
+					document.location.reload();	
+					}
+
+				}else{
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+				
+					}
 			});
 
 		}		

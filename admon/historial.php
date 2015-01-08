@@ -4,7 +4,7 @@ session_start();
 @$usuario=$_SESSION['nick'];
 include_once '../includes/conexion.php';
 
-	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Administrador')
 	{
 ?>
 
@@ -32,7 +32,7 @@ include_once '../includes/conexion.php';
 						<li class="menu2-item"><a href="inventario.php" >Inventario</a></li>
 						<li class="menu2-item"><a href="" class="active">Historial</a></li>
 						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
-						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
+						
 					</ul>
 				</nav>
 				<div class="contenido-cartas">
@@ -58,7 +58,7 @@ include_once '../includes/conexion.php';
 								$tarjetas= array("10","11","12","13","14");
 								$tarjetasvalidas= array("0","0","0","0","0");
 								$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='1'");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$usuario' ");
 													
 														  if($row1=mysql_fetch_array($resul1))
 														  {
@@ -101,7 +101,7 @@ include_once '../includes/conexion.php';
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  		$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$usuario'  and fkTarjeta='$tarjetasvalidas[$i]'");
 																													  	$cantidad=mysql_num_rows($resul1);
 																													  	$idAsig=mysql_fetch_array($resul1);
 																														

@@ -16,6 +16,7 @@ if($_POST)
 			$nuevaAsig=mysql_query("insert into asignaciones values('','".$usuarioAsig."','".$usuarioP."','".$tarjeta."','0')");
 
 		}
+	
 		if($nuevaAsig)
 				{
 					echo "true";

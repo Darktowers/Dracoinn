@@ -101,7 +101,7 @@ include_once '../includes/conexion.php';
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
 																													  	$cantidad=mysql_num_rows($resul1);
 																													  	$idAsig=mysql_fetch_array($resul1);
 																														

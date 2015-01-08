@@ -4,7 +4,7 @@ session_start();
 @$usuario=$_SESSION['nick'];
 include_once '../includes/conexion.php';
 
-	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Administrador')
 	{
 ?>
 
@@ -30,37 +30,27 @@ include_once '../includes/conexion.php';
 						<li class="menu2-item"><a href="index.php" >Inicio</a></li>
 						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
 						<li class="menu2-item"><a href="historial.php">Historial</a></li>
-						<li class="menu2-item"><a href=""class="active">Soporte</a></li>
-						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
+						<li class="menu2-item"><a href="soporte.php"class="active">Soporte</a></li>
+						
 					</ul>
 				</nav>
-				<div class="contenidos">
-					<br>
-					<br>
-					<h2>INDIQUENOS SUS INQUIETUDES<br>
-RECLAMOS O SUGERENCIAS AQUÍ!
-</h2>
-					<br>
-					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
-						
+				<div class="contenido-cartas">
+					<div id="buscador">
+						<form action="" class="searching">
+							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
+							<div class="searchicon">
+								<span class="icon-search search-icon"></span>
+							</div>
+						</form>
+					</div>
 					
-					<div class="usuario">
-						<span class="icon-envelope"></span>
-						<input type="text" name="usuario" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off" >
+					
+					<div class="contenedorusuario">
+						<div class='cartas right'>
+							
+						</div>
 					</div>
-					<div class="asunto">
-						<span class="icon-location"></span>
-						<input type="text" name="asunto" placeholder="Asunto" required autocomplete="off" style="width: 240px;">
-					</div>
-					<div class="mensaje">
-						<textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
-						
-					</div>
-					<div class="input">
-						
-							<input type="submit" value="Enviar" action="">
-					</div>
-				</form>
+					
 				</div>
 			</section>
 		</div>	
@@ -69,7 +59,8 @@ RECLAMOS O SUGERENCIAS AQUÍ!
 	</script>
 	<script src="js/js.js">
 	</script>
-	
+	<script src="js/ajaxBusquedaSoporte.js">
+	</script>
 	<script src="js/incluNotifi.js">
 	</script>
 

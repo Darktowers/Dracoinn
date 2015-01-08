@@ -69,7 +69,12 @@ if($_POST)
 			header('location:user/index.php');
 		}
 	
-	else{
+	elseif($rows==1 && $fetch['rolUsuario']=="Administrador"){
+		    $_SESSION['usuario']=true;
+			$_SESSION['rol']=$fetch['rolUsuario'];
+			$_SESSION['nick']=$fetch['nickName'];
+			header('location:admon/index.php');
+		}else{
 		?>
 		
 			<script type="text/javascript">
@@ -88,9 +93,12 @@ if($_POST)
 }
 else
 {
-	if(@$_SESSION['usuario']==true)
+	if(@$_SESSION['rol']=='Usuario')
 	{
 		header('location:user/index.php');
+	}elseif(@$_SESSION['rol']=='Administrador')
+	{
+		header('location:admon/index.php');
 	}
 }
 ?>

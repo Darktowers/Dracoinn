@@ -4,7 +4,7 @@ session_start();
 @$usuario=$_SESSION['nick'];
 include_once '../includes/conexion.php';
 
-	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Administrador')
 	{
 ?>
 
@@ -79,11 +79,11 @@ include_once '../includes/conexion.php';
 					<br>
 					<h1>Perfil</h1>
 					<br>
-					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
+					<form action="php/cambioFoto.php" method="POST" id="formulario" enctype="multipart/form-data">
 					<div class="imagen-actual" style="width: 150px; position: relative; display: inline-block;">
 						<img src="<?php echo"$fotoUsuario"; ?>" alt="" width='150' height='150'>
 
-						<input type="file" name="file" style="width: 150px; height: 150px; border-radius: 50%; position: absolute; padding: 0px; right: 0px;top: 0px; opacity: 0;">
+						<input type="file" name="foto" style="width: 150px; height: 150px; border-radius: 50%; position: absolute; padding: 0px; right: 0px;top: 0px; opacity: 0;">
 					</div>
 					<div class="recuerdo"><h3>Haz Click para cambiar el avatar</h3></div>
 					
@@ -95,8 +95,9 @@ include_once '../includes/conexion.php';
 						<span class="icon-envelope"></span>
 						<input type="text" name="telefono" placeholder="Telefono" required autocomplete="off" value="<?php echo"$telefonoUsuario"; ?>">
 					</div>
+						<input type="hidden" id="usuario" name="usuario" value="<?=$usuario?>"/>
 					
-					<input type="submit" value="Cambiar datos" action="">
+					<input type="submit" value="Cambiar datos" >
 				</form>
 				</div>
 			</section>

@@ -51,10 +51,11 @@ session_start();
 														</figure>
 														<h4>$correoBusqueda</h4>
 														<h4>+$telefonoBusqueda</h4>
+														<div style='margin-bottom: 1em;''><span class='bloquear' id='bloquear'>bloquear</span></div> 
 
 													</div>";
 													$cont=0;
-													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra'");
+													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra'AND Estado='0'");
 														  if($row1=mysql_fetch_array($resul1))
 														  {
 																	  do{
@@ -96,8 +97,14 @@ session_start();
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
 																													  	$cantidad=mysql_num_rows($resul1);
+																													  	$resul3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario='$letra' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$resu3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuPropietario='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
+																													  	$cantidad2=mysql_num_rows($resul3);
+																													  	$cantidad22=mysql_num_rows($resu3);
+																													  	$totalcompradas =$cantidad2+$cantidad22;
+
 																													  		$imgTarjeta=stripslashes($row2["urlImgTarjeta"]);
 																													  		
 																													  		echo"
@@ -107,7 +114,8 @@ session_start();
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick' width='150' height='200'>
 																																			
 																																		</figure>
-																																		<span class='contador round'>$cantidad</span>
+																																		<span class='contador round'  style='border: 3px solid #2583FF;'>$totalcompradas</span>
+																																		<span class='contador round'  style='border: 3px solid #1AAB37;'>$cantidad</span>
 																																		<div class='highlight'></div>
 
 																																	</div>
@@ -124,14 +132,18 @@ session_start();
 																										  if($row3=mysql_fetch_array($resul3))
 																										  {
 																													  do{
-																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
-																													  		
+																													  	$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
+																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]'");
+																													  	$cantidad=mysql_num_rows($resul5);
+																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]'");
+																													  	$cantidad2=mysql_num_rows($resul4);
 																													  		echo"
 																																	<div class='carta-item' id='inactive'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
 																																		</figure>
-																																		<span class='contador round'>0</span>
+																																		<span class='contador round'  style='border: 3px solid #2583FF;'>$cantidad2</span>
+																																		<span class='contador round'  style='border: 3px solid #1AAB37;'>$cantidad</span>
 																																		<div class='inactive'></div>
 																																	</div>
 																																	
@@ -141,11 +153,44 @@ session_start();
 																						 					}	
 										 									}
 
-										 							}	
+										 							}
+
 										 					
 										 					}
 										 					else{
-										 						echo"<h1>Usuario sin tarjetas asignadas</h1>";
+										 							echo"<h1>Usuario sin tarjetas asignadas</h1>";
+
+																	for($i=0;$i<count($tarjetasvalidas);$i++)
+										 							{	
+										 						
+										 								$resul3=mysql_query("SELECT * FROM tarjetas WHERE idTarjeta='$tarjetas[$i]'");
+																										  if($row3=mysql_fetch_array($resul3))
+																										  {
+																													  do{
+																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
+																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador='$letra' and Estado='0' and fkTarjeta='$tarjetas[$i]'");
+																													  	$cantidad=mysql_num_rows($resul5);
+																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and Estado='1' and fkTarjeta='$tarjetas[$i]'");
+																													  	$cantidad2=mysql_num_rows($resul4);
+																													  		echo"
+																																	<div class='carta-item' id='inactive'>
+																																		<figure>
+																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
+																																		</figure>
+																																		<span class='contador round'  style='border: 3px solid #2583FF;'>$cantidad2</span>
+																																		<span class='contador round'  style='border: 3px solid #1AAB37;'>$cantidad</span>
+																																		<div class='inactive'></div>
+																																	</div>
+																																	
+																																";
+
+																						 								}while($row3=mysql_fetch_array($resul3));
+																						 					}
+
+
+
+
+																			}			 							
 										 					}			
 										
 										  }while($row=mysql_fetch_array($resul));

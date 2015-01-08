@@ -137,7 +137,7 @@ div.carta-item input:checked ~ div.highlight {
 																													  		
 																													  		echo"
 																																	<div class='carta-item' id='active'>
-																																	<input type='radio' id='".$mod."' alt='".$idAsig['idAsignacion']."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+																																	<input type='radio' id='".$mod."' alt='".$idAsig['idAsignacion']."' rel='".$tarjetasvalidas[$i]."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
 																																		<figure id='mod' >
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick valueCarta' width='150' height='200'>
 																																			

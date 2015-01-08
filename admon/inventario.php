@@ -4,7 +4,7 @@ session_start();
 @$usuario=$_SESSION['nick'];
 include_once '../includes/conexion.php';
 
-	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Administrador')
 	{
 ?>
 
@@ -51,7 +51,7 @@ div.carta-item input:checked ~ div.highlight {
 						<li class="menu2-item"><a href="" class="active">Inventario</a></li>
 						<li class="menu2-item"><a href="historial.php">Historial</a></li>
 						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
-						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
+						
 					</ul>
 				</nav>
 				<div class="contenido-cartas">
@@ -75,7 +75,7 @@ div.carta-item input:checked ~ div.highlight {
 
 
 								$tarjetas= array("10","11","12","13","14");
-								$tarjetasvalidas= array("0","0","0","0","0");
+								$tarjetasvalidas=  array("10","11","12","13","14");
 								$cont=0;
 													$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0'");
 													
@@ -84,25 +84,14 @@ div.carta-item input:checked ~ div.highlight {
 																	  do{
 																	  		$fkTarjeta=stripslashes($row1["fkTarjeta"]);
 																	  			
-																	  		$cont++;
 																	  		
-																	  		if($fkTarjeta=="10"){
-																	  				$tarjetasvalidas[0]=$fkTarjeta;	
-																	  		}elseif ($fkTarjeta=="11") {
-																	  			$tarjetasvalidas[1]=$fkTarjeta;
-																	  		}elseif ($fkTarjeta=="12") {
-																	  			$tarjetasvalidas[2]=$fkTarjeta;
-																	  		}elseif ($fkTarjeta=="13") {
-																	  			$tarjetasvalidas[3]=$fkTarjeta;
-																	  		}elseif ($fkTarjeta=="14") {
-																	  			$tarjetasvalidas[4]=$fkTarjeta;
-																	  		}	
-
+																	  		
+																	  
 
 													
 										 								}while($row1=mysql_fetch_array($resul1));
 										 					}
-										 					if($cont>0){
+										 					if($cont==0){
 										 						
 										 							/*for($i=0;$i<count($tarjetasvalidas);$i++)
 										 							{	
@@ -120,8 +109,8 @@ div.carta-item input:checked ~ div.highlight {
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
-																													  	$cantidad=mysql_num_rows($resul1);
+																													 
+																													  	$cantidad=1;
 																													  	$idAsig=mysql_fetch_array($resul1);
 																														$mod=$cantidad%2;
 																														if($mod==0)
@@ -137,12 +126,12 @@ div.carta-item input:checked ~ div.highlight {
 																													  		
 																													  		echo"
 																																	<div class='carta-item' id='active'>
-																																	<input type='radio' id='".$mod."' alt='".$idAsig['idAsignacion']."' class='cartasActivas ' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
+																																	<input type='radio' rel='$tarjetasvalidas[$i]' id='".$mod."' alt='".$idAsig['idAsignacion']."' class='cartasActivas' value='".$imgTarjeta."' name='cartasRadio' style='width: 150px; height: 200px; top: 0; position: absolute; right:0;z-index:1;opacity:0;'>
 																																		<figure id='mod' >
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick valueCarta' width='150' height='200'>
 																																			
 																																		</figure>
-																																		<span class='contador round'>$cantidad</span>
+																																		<span class='contador round'>∞</span>
 																																		<div class='highlight'></div>
 
 																																	</div>
@@ -219,8 +208,7 @@ div.carta-item input:checked ~ div.highlight {
 	</script>
 	<script src="js/js.js">
 	</script>
-	<script src="js/ajaxBusqueda.js">
-	</script>
+	
 	<script src="js/incluNotifi.js">
 	</script>
 	<script src="js/asignaCartas.js">

@@ -4,7 +4,7 @@ session_start();
 @$usuario=$_SESSION['nick'];
 include_once '../includes/conexion.php';
 
-	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Usuario')
+	if(@$_SESSION['usuario']==true && @$_SESSION['rol']=='Administrador')
 	{
 ?>
 
@@ -31,7 +31,7 @@ include_once '../includes/conexion.php';
 						<li class="menu2-item"><a href="inventario.php">Inventario</a></li>
 						<li class="menu2-item"><a href="historial.php">Historial</a></li>
 						<li class="menu2-item"><a href="soporte.php">Soporte</a></li>
-						<li class="menu2-item"><a href="politicas.php">Politicas</a></li>
+						
 					</ul>
 				</nav>
 				<div class="contenido-cartas">
