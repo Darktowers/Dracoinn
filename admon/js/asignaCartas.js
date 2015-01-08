@@ -9,7 +9,7 @@ $(function (){
 			$(".imagenUrl").attr("src",""+urlCarta+"");
 			var idAsig= $(this).attr("alt");
 			var mo= $(this).attr("id");
-			var tarjeta= $(this).attr("rel");
+			 tarjeta= $(this).attr("rel");
 			//alert(idAsig);
 			if(mo==1){
 				$("#cartas1").css("display","none");
@@ -37,7 +37,7 @@ $(function (){
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP } ,
 						success:function(data){
 							
 							document.location.reload();
@@ -73,7 +73,7 @@ $(function (){
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP } ,
 						success:function(data){
 							
 							document.location.reload();

@@ -7,9 +7,9 @@ $(function (){
 		if(valorCarta){
 			$("#contenedorAsigna").css("display","block");
 			$(".imagenUrl").attr("src",""+urlCarta+"");
-			var idAsig= $(this).attr("alt");
+			idAsig= $(this).attr("alt");
 			var mo= $(this).attr("id");
-			var tarjeta= $(this).attr("rel");
+			tarjeta= $(this).attr("rel");
 			//alert(idAsig);
 			if(mo==1){
 				$("#cartas1").css("display","none");
@@ -32,7 +32,7 @@ $(function (){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
-					alert(tarjeta);
+					alert(tarjeta+usuarioP+idAsig+usuario);
 				
 					$.ajax({
 						type:"POST",
