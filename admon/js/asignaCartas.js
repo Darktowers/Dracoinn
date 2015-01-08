@@ -20,9 +20,9 @@ $(function (){
 			$("#enviar1").click(function(){
 				var usuario=$("#usuarioD").attr("value");
 				
-				var usuarioP=$("#carta1").val();
+				var usuarioP=$("#carta2").val();
 				
-				if(usuarioP!=""){
+				if(usuarioP!="" && usuarioP != usuario){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
@@ -31,7 +31,7 @@ $(function (){
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
 						success:function(data){
 							
 							document.location.reload();
@@ -44,18 +44,19 @@ $(function (){
 					}
 
 				}else{
-					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta o estas intentando asignarte a ti mismo.");
 				
 					}
+				
 			});
 
 			$("#enviar2").click(function(){
-				
+
 				var usuario=$("#usuarioD").attr("value");
 				
 				var usuarioP=$("#carta2").val();
 				
-				if(usuarioP!=""){
+				if(usuarioP!="" && usuarioP != usuario){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
@@ -64,7 +65,7 @@ $(function (){
 					$.ajax({
 						type:"POST",
 						url:"php/asignar.php",
-						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP} ,
+						data:{ tarjeta: tarjeta, usuarioAsig:usuario, usuarioP : usuarioP , idAsig :idAsig} ,
 						success:function(data){
 							
 							document.location.reload();
@@ -77,9 +78,10 @@ $(function (){
 					}
 
 				}else{
-					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta o estas intentando asignarte a ti mismo.");
 				
 					}
+
 			});
 
 		}		

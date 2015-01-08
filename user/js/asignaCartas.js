@@ -22,7 +22,7 @@ $(function (){
 				
 				var usuarioP=$("#carta2").val();
 				
-				if(usuarioP!=""){
+				if(usuarioP!="" && usuarioP != usuario){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
@@ -44,7 +44,7 @@ $(function (){
 					}
 
 				}else{
-					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta o estas intentando asignarte a ti mismo.");
 				
 					}
 				
@@ -56,7 +56,7 @@ $(function (){
 				
 				var usuarioP=$("#carta2").val();
 				
-				if(usuarioP!=""){
+				if(usuarioP!="" && usuarioP != usuario){
 					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
@@ -78,7 +78,7 @@ $(function (){
 					}
 
 				}else{
-					alert("No ha seleccionado ningun usuario para asignar la tarjeta.");
+					alert("No ha seleccionado ningun usuario para asignar la tarjeta o estas intentando asignarte a ti mismo.");
 				
 					}
 
