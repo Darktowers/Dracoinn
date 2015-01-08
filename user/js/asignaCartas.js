@@ -65,7 +65,7 @@ $(function (){
 				
 
 				if(usuarioP!="" && usuarioP != usuario){
-					alert(usuarioP+usuario);
+					
 				var confirmar=confirm("Desea Asignar la carta a el usuario "+usuarioP);
 				if(confirmar){
 					alert(tarjeta);
