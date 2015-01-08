@@ -8,12 +8,13 @@ if($_POST)
 	$idAsig=$_POST['idAsig'];
 	include_once '../../includes/conexion.php';
 	$cont=0;
-	$resul=mysql_query("SELECT * FROM `usuario` WHERE `nickName`=_utf8 '$usuarioP' collate utf8_bin");
+	$resul=mysql_query("SELECT * FROM `usuario` WHERE rolUsuario='Usuario' and `nickName`=_utf8 '$usuarioP' collate utf8_bin");
 							  if($row=mysql_fetch_array($resul))
 							  {
 										  do{
 										
 												$cont++;
+
 										
 										}while($row=mysql_fetch_array($resul));
 							  }
