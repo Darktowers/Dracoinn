@@ -43,7 +43,7 @@ include_once '../includes/conexion.php';
 
 						<input type="file" name="foto" style="width: 150px; height: 150px; border-radius: 50%; position: absolute; padding: 0px; right: 0px;top: 0px; opacity: 0;">
 					</div>
-					<div class="recuerdo"><h3>Haz Click para cambiar el avatar</h3></div>
+					<div class="recuerdo"><h3>Haz Click para cambiar el avatar<br> tamaño imagen max(256Kb)</h3></div>
 					
 					<div class="email">
 						<span class="icon-location"></span>
