@@ -41,19 +41,20 @@ include_once '../includes/conexion.php';
 RECLAMOS O SUGERENCIAS AQUÍ!
 </h2>
 					<br>
-					<form action="" method="POST" id="formulario" enctype="multipart/form-data">
+					<form action="php/correoSoporte.php" method="POST" id="formulario" enctype="multipart/form-data">
 						
 					
 					<div class="usuario">
 						<span class="icon-envelope"></span>
-						<input type="text" name="usuario" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off"  disabled>
+						<input type="hidden" id="usuario" name="usuario" value="<?=$usuario?>"/>
+						<input type="text" name="" placeholder="Usuario" value="<?php echo"$usuario"; ?>"  required autocomplete="off"  disabled>
 					</div>
 					<div class="asunto">
 						<span class="icon-location"></span>
 						<input type="text" name="asunto" placeholder="Asunto" required autocomplete="off" style="width: 240px;">
 					</div>
 					<div class="mensaje">
-						<textarea name="" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
+						<textarea name="mensaje" id="" cols="30" rows="10" placeholder="Mensaje"></textarea>
 						
 					</div>
 					<div class="input">
