@@ -101,8 +101,20 @@ include_once '../includes/conexion.php';
 																										  if($row2=mysql_fetch_array($resul2))
 																										  {
 																													  do{
-																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
-																													  	$cantidad=mysql_num_rows($resul1);
+																													  	$resul3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuAsignador=_utf8'$usuario' and estado='1' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
+																													  	$resu3=mysql_query("SELECT * FROM asignaciones WHERE  fkUsuAsignador=_utf8'$usuario' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]' collate utf8_bin");
+																													  	$cantidad2=mysql_num_rows($resul3);
+																													  	$cantidad22=mysql_num_rows($resu3);
+																													  	$totalcompradas =$cantidad2+$cantidad22;
+																													  	$mod=$totalcompradas%2;
+																														if($mod==0)
+																															{
+																																$totalcompradas=$totalcompradas/2; 
+																															}
+																															elseif($mod==1)
+																																{
+																																	$totalcompradas=($totalcompradas+1)/2;
+																																}
 																													  	$idAsig=mysql_fetch_array($resul1);
 																														
 													
@@ -115,7 +127,7 @@ include_once '../includes/conexion.php';
 																																			<img src='$imgTarjeta' alt='' value='".$tarjetasvalidas[$i]."' class='contadorClick valueCarta' width='150' height='200'>
 																																			
 																																		</figure>
-																																		<span class='contador round'>$cantidad</span>
+																																		<span class='contador round'>$totalcompradas</span>
 																																		<div class='highlight'></div>
 
 																																	</div>
@@ -132,19 +144,24 @@ include_once '../includes/conexion.php';
 																										  if($row3=mysql_fetch_array($resul3))
 																										  {
 																													  do{
-																													  		$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
+																													  	
 																													  		
+																													  	$imgTarjeta=stripslashes($row3["urlImgTarjeta"]);
+																													  	$resul5=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$usuario' and Estado='0' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
+																													  	$cantidad=mysql_num_rows($resul5);
+																													  	$resul4=mysql_query("SELECT * FROM asignaciones WHERE fkUsuAsignador=_utf8'$usuario' and Estado='1' and fkTarjeta='$tarjetas[$i]' collate utf8_bin");
+																													  	$cantidad2=mysql_num_rows($resul4);
 																													  		echo"
 																																	<div class='carta-item' id='inactive'>
 																																		<figure>
 																																			<img src='$imgTarjeta' alt='' width='150' height='200'>
 																																		</figure>
-																																		<span class='contador round'>0</span>
+																																		<span class='contador round'>$cantidad2</span>
+																																		
 																																		<div class='inactive'></div>
 																																	</div>
 																																	
 																																";
-
 																						 								}while($row3=mysql_fetch_array($resul3));
 																						 					}	
 										 									}

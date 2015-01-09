@@ -49,6 +49,18 @@ include_once '../includes/conexion.php';
 						<div class='cartas right'>
 							
 						</div>
+						<div class="convenciones" style="
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 4em 9em 0;
+">
+							
+							
+							<span class='contador round'  style='border: 3px solid #1AAB37;'>totalcompradas</span>
+						
+							<span class='contador round'  style='border: 3px solid #2583FF;'>totalvendidas</span>
+						</div>
 					</div>
 					
 				</div>
