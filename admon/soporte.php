@@ -36,12 +36,12 @@ include_once '../includes/conexion.php';
 				</nav>
 				<div class="contenido-cartas">
 					<div id="buscador">
-						<form action="" class="searching">
+						<span action="" class="searching">
 							<input id="search" type="text" autocomplete="off" name="search" placeholder="Buscar Usuario ..." class="search" />
-							<div class="searchicon">
+							<div class="searchicon" id="botonBus">
 								<span class="icon-search search-icon"></span>
 							</div>
-						</form>
+						</span>
 					</div>
 					
 					
