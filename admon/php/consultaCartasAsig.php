@@ -98,6 +98,15 @@ session_start();
 																													  do{
 																													  	$resul1=mysql_query("SELECT * FROM asignaciones WHERE fkUsuPropietario='$letra' and estado='0' and fkTarjeta='$tarjetasvalidas[$i]'");
 																													  	$cantidad=mysql_num_rows($resul1);
+																													  	$mod=$cantidad%2;
+																														if($mod==0)
+																															{
+																																$cantidad=$cantidad/2; 
+																															}
+																															elseif($mod==1)
+																																{
+																																	$cantidad=($cantidad+1)/2;
+																																}
 																													  		$imgTarjeta=stripslashes($row2["urlImgTarjeta"]);
 																													  		
 																													  		echo"
