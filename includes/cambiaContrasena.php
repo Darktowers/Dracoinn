@@ -26,7 +26,7 @@ $cabeceras = 'From: dracon@outlook.es' . "\r\n" .
     'Reply-To: dracon@outlook.es' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-mail($para, $titulo, $mensaje, $cabeceras);
+
 if(mail($para, $titulo, $mensaje, $cabeceras)){
 		?>
 		<script>

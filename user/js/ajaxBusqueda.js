@@ -23,7 +23,7 @@ $(function() {
 				success:function(data)
 				{
 					
-					$(".searching").append($("#busque").html(data));
+					//$(".searching").append($("#busque").html(data)); autocomplete deshabilitado 
 					$("#busque").css("display","block");
 					$(".resultados").click(
 						function()
