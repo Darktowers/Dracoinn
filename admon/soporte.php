@@ -49,11 +49,11 @@ include_once '../includes/conexion.php';
 						<div class='cartas right'>
 							
 						</div>
-						<div class="convenciones" style="
+						<div class="convenciones"style="
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 0 4em 9em 0;
+    padding: 0px 2em 21em 0;
 ">
 							
 							
